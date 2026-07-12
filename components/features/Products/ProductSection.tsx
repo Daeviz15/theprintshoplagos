@@ -8,20 +8,20 @@ import { useModalStore } from '@/lib/store/useModalStore';
 const categories = ['All', 'Artists', 'Typography', 'Quotes', 'Abstract'];
 
 const allProducts = [
-  { id: 1, category: 'Artists', src: '/products/artist-wizkid.jfif', alt: 'Wizkid Portrait' },
-  { id: 6, category: 'Abstract', src: '/products/art-gallery-1.jfif', alt: 'Gallery Art 1' },
-  { id: 3, category: 'Typography', src: '/products/art-typography.jfif', alt: 'Typography Art' },
-  { id: 7, category: 'Abstract', src: '/products/art-gallery-2.jfif', alt: 'Gallery Art 2' },
-  { id: 2, category: 'Artists', src: '/products/artist-burnaboy.jfif', alt: 'Burna Boy Art' },
-  { id: 4, category: 'Quotes', src: '/products/quote-dice.jfif', alt: 'Quote Dice' },
-  { id: 5, category: 'Abstract', src: '/products/art-graphic.jfif', alt: 'Graphic Art' },
-  { id: 8, category: 'Abstract', src: '/products/art-gallery-3.jfif', alt: 'Gallery Art 3' },
-  { id: 9, category: 'Abstract', src: '/products/art-gallery-4.jfif', alt: 'Gallery Art 4' },
-  { id: 10, category: 'Abstract', src: '/products/art-gallery-5.jfif', alt: 'Gallery Art 5' },
-  { id: 11, category: 'Abstract', src: '/products/art-gallery-6.jfif', alt: 'Gallery Art 6' },
-  { id: 12, category: 'Abstract', src: '/products/art-gallery-7.jfif', alt: 'Gallery Art 7' },
-  { id: 13, category: 'Abstract', src: '/products/art-gallery-8.jfif', alt: 'Gallery Art 8' },
-  { id: 14, category: 'Abstract', src: '/products/art-gallery-9.jfif', alt: 'Gallery Art 9' },
+  { id: 1, category: 'Artists', src: '/products/artist-wizkid.jpg', alt: 'Wizkid Portrait' },
+  { id: 6, category: 'Abstract', src: '/products/art-gallery-1.jpg', alt: 'Gallery Art 1' },
+  { id: 3, category: 'Typography', src: '/products/art-typography.jpg', alt: 'Typography Art' },
+  { id: 7, category: 'Abstract', src: '/products/art-gallery-2.jpg', alt: 'Gallery Art 2' },
+  { id: 2, category: 'Artists', src: '/products/artist-burnaboy.jpg', alt: 'Burna Boy Art' },
+  { id: 4, category: 'Quotes', src: '/products/quote-dice.jpg', alt: 'Quote Dice' },
+  { id: 5, category: 'Abstract', src: '/products/art-graphic.jpg', alt: 'Graphic Art' },
+  { id: 8, category: 'Abstract', src: '/products/art-gallery-3.jpg', alt: 'Gallery Art 3' },
+  { id: 9, category: 'Abstract', src: '/products/art-gallery-4.jpg', alt: 'Gallery Art 4' },
+  { id: 10, category: 'Abstract', src: '/products/art-gallery-5.jpg', alt: 'Gallery Art 5' },
+  { id: 11, category: 'Abstract', src: '/products/art-gallery-6.jpg', alt: 'Gallery Art 6' },
+  { id: 12, category: 'Abstract', src: '/products/art-gallery-7.jpg', alt: 'Gallery Art 7' },
+  { id: 13, category: 'Abstract', src: '/products/art-gallery-8.jpg', alt: 'Gallery Art 8' },
+  { id: 14, category: 'Abstract', src: '/products/art-gallery-9.jpg', alt: 'Gallery Art 9' },
 ];
 
 export default function ProductSection() {
