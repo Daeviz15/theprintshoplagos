@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useModalStore } from '@/lib/store/useModalStore';
 
 const categories = ['All', 'Artists', 'Typography', 'Quotes', 'Abstract'];
 
@@ -25,14 +27,14 @@ const allProducts = [
 export default function ProductSection() {
   const [activeCategory, setActiveCategory] = useState('All');
 
-  const filteredProducts = activeCategory === 'All' 
-    ? allProducts 
+  const filteredProducts = activeCategory === 'All'
+    ? allProducts
     : allProducts.filter(p => p.category === activeCategory);
 
   return (
-    <section className="relative w-full bg-brand-offwhite py-24 px-8 lg:px-12">
+    <section id="products" className="relative w-full bg-brand-offwhite py-16 lg:py-24 px-4 sm:px-6 lg:px-12">
       <div className="max-w-[1400px] mx-auto flex flex-col items-center">
-        
+
         {/* Header section */}
         <div className="text-center mb-12">
           <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-muted">
@@ -48,15 +50,15 @@ export default function ProductSection() {
         </div>
 
         {/* Categories Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-16">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12 lg:mb-16">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={`
-                px-6 py-2.5 rounded-full text-[13px] font-medium tracking-[0.05em] transition-all duration-300
-                ${activeCategory === cat 
-                  ? 'bg-brand-black text-white shadow-lg scale-105' 
+                px-5 py-2 rounded-full text-[12px] sm:text-[13px] font-medium tracking-[0.05em] transition-all duration-300
+                ${activeCategory === cat
+                  ? 'bg-brand-black text-white shadow-lg scale-105'
                   : 'bg-white text-brand-muted hover:bg-brand-black/5 hover:text-brand-black border border-brand-border'
                 }
               `}
@@ -65,37 +67,45 @@ export default function ProductSection() {
             </button>
           ))}
         </div>
-
         {/* Masonry Gallery */}
-        <div className="w-full columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
-          {filteredProducts.map((product, index) => (
-            <div 
-              key={`${activeCategory}-${product.id}`} 
-              className="relative w-full break-inside-avoid rounded-2xl overflow-hidden group cursor-pointer bg-white shadow-sm hover:shadow-xl transition-all duration-500 animate-fade-in-up"
-              style={{ animationDelay: `${index * 50}ms` }}
-            >
-              <div className="relative w-full">
-                <Image
-                  src={product.src}
-                  alt={product.alt}
-                  width={600}
-                  height={800}
-                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-              </div>
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
-            </div>
-          ))}
-        </div>
+        <motion.div layout className="w-full columns-2 sm:columns-2 lg:columns-3 xl:columns-4 gap-3 sm:gap-4 lg:gap-6">
+          <AnimatePresence mode="popLayout">
+            {filteredProducts.map((product) => (
+              <motion.div
+                layout
+                initial={{ opacity: 0, scale: 0.85, y: 30 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.85, y: 30 }}
+                transition={{ duration: 0.4, type: "spring", bounce: 0.2 }}
+                key={product.id}
+                className="relative w-full break-inside-avoid rounded-2xl overflow-hidden group cursor-pointer bg-white shadow-sm hover:shadow-xl mb-3 sm:mb-4 lg:mb-6"
+              >
+                <div className="relative w-full">
+                  <Image
+                    src={product.src}
+                    alt={product.alt}
+                    width={600}
+                    height={800}
+                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
 
-        {/* Show All Button */}
+        {/* View More Button */}
         <div className="mt-16">
-          <button className="flex items-center gap-2 px-8 py-4 bg-white text-brand-black text-[13px] font-bold rounded-full hover:bg-brand-black hover:text-white transition-all shadow-md group border border-brand-border hover:border-brand-black">
-            Show All ({allProducts.length} models)
-            <svg 
-              className="w-4 h-4 transition-transform group-hover:translate-x-1" 
-              fill="none" 
-              stroke="currentColor" 
+          <button
+            onClick={() => useModalStore.getState().setSignUpModalOpen(true)}
+            className="flex items-center gap-2 px-8 py-4 bg-white text-brand-black text-[13px] font-bold rounded-full hover:bg-brand-black hover:text-white transition-all shadow-md group border border-brand-border hover:border-brand-black"
+          >
+            View More
+            <svg
+              className="w-4 h-4 transition-transform group-hover:translate-x-1"
+              fill="none"
+              stroke="currentColor"
               viewBox="0 0 24 24"
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
