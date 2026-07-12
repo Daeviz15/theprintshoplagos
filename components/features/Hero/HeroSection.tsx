@@ -83,7 +83,7 @@ export default function HeroSection() {
   );
 
   return (
-    <section className="relative w-full h-dvh min-h-[600px] bg-brand-offwhite overflow-hidden flex flex-col">
+    <section className="relative w-full min-h-dvh bg-brand-offwhite flex flex-col">
       <Navbar />
 
       {/* ── DESKTOP layout (md+) ── */}
@@ -101,7 +101,8 @@ export default function HeroSection() {
         </div>
 
         {/* Right: Hero Image */}
-        <div className="flex-1 flex items-center justify-center h-full py-16 pointer-events-none">
+        {/* Right: Hero Image */}
+        <div className="flex-1 flex items-center justify-center h-full py-8 lg:py-10 pointer-events-none">
           <div
             onAnimationEnd={handleAnimationEnd}
             className={`relative w-full max-w-[500px] max-h-[74vh] aspect-[4/5] pointer-events-auto transition-colors duration-500 ${frameClasses[activeFrame]} ${animClass}`}
@@ -139,7 +140,8 @@ export default function HeroSection() {
       </div>
 
       {/* ── Bottom Brand Bar — always at the bottom, centered ── */}
-      <div className="w-full z-20 flex-shrink-0">
+      {/* ── Bottom Brand Bar — always at the bottom, centered ── */}
+      <div className="w-full z-20 flex-shrink-0 pb-2 lg:pb-4">
         <BrandBar
           activeFrame={activeFrame}
           onSelectFrame={setActiveFrame}
