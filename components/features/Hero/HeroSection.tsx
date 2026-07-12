@@ -101,8 +101,7 @@ export default function HeroSection() {
         </div>
 
         {/* Right: Hero Image */}
-        {/* Right: Hero Image */}
-        <div className="flex-1 flex items-center justify-center h-full py-8 lg:py-10 pointer-events-none">
+        <div className="flex-1 flex items-center justify-center h-full pt-16 pb-8 lg:pt-20 lg:pb-10 pointer-events-none">
           <div
             onAnimationEnd={handleAnimationEnd}
             className={`relative w-full max-w-[500px] max-h-[74vh] aspect-[4/5] pointer-events-auto transition-colors duration-500 ${frameClasses[activeFrame]} ${animClass}`}
