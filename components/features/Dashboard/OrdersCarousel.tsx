@@ -168,10 +168,10 @@ export default function OrdersCarousel({ orders }: OrdersCarouselProps) {
         </button>
       </div>
 
-      {/* Expanded Order Detail Modal */}
-      <AnimatePresence>
-        {selectedOrder && typeof document !== 'undefined' && createPortal(
-          (() => {
+      {/* Expanded Order Detail Modal — portaled to body for correct z-index above sticky navbar */}
+      {typeof document !== 'undefined' && createPortal(
+        <AnimatePresence>
+          {selectedOrder && (() => {
             const statusInfo = statusConfig[selectedOrder.status] || statusConfig['In Production'];
             const StatusIcon = statusInfo.icon;
 
@@ -194,7 +194,7 @@ export default function OrdersCarousel({ orders }: OrdersCarouselProps) {
                   className="relative bg-white rounded-3xl md:rounded-[2rem] w-full max-w-[1000px] h-[92vh] md:h-[650px] overflow-hidden shadow-2xl flex flex-col md:flex-row"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  {/* Close Button - Floats over everything */}
+                  {/* Close Button */}
                   <button
                     onClick={() => setSelectedOrder(null)}
                     className="absolute top-3 right-3 md:top-6 md:right-6 z-[1000] p-2.5 md:p-3 rounded-full bg-white/90 backdrop-blur-sm text-brand-black hover:bg-brand-offwhite transition-colors shadow-md"
@@ -223,7 +223,7 @@ export default function OrdersCarousel({ orders }: OrdersCarouselProps) {
 
                   {/* Right side: Details Body (Scrollable) */}
                   <div className="w-full md:w-1/2 flex-1 p-5 sm:p-6 md:p-10 overflow-y-auto no-scrollbar bg-white flex flex-col min-h-0">
-                    
+
                     {/* Status & Price Row */}
                     <div className="flex items-center justify-between gap-4 mb-6 md:mb-8 pb-6 md:pb-8 border-b border-black/5 shrink-0">
                       <div className={`flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-5 md:py-2.5 rounded-full border text-xs md:text-sm font-medium whitespace-nowrap ${statusInfo.bg} ${statusInfo.color}`}>
@@ -286,10 +286,10 @@ export default function OrdersCarousel({ orders }: OrdersCarouselProps) {
                 </motion.div>
               </motion.div>
             );
-          })(),
-          document.body
-        )}
-      </AnimatePresence>
+          })()}
+        </AnimatePresence>,
+        document.body
+      )}
     </>
   );
 }
