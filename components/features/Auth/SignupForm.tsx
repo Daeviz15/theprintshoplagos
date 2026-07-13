@@ -252,7 +252,7 @@ export default function SignupForm() {
       </p>
 
       {/* Full Screen Loading Overlay */}
-      {isGoogleLoading && (
+      {isLoading && (
         <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/60 backdrop-blur-sm">
           <GlobalLoader size="lg" className="scale-150" />
         </div>

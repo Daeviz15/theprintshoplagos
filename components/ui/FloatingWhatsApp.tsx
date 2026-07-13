@@ -3,7 +3,7 @@
 import React from 'react';
 
 export default function FloatingWhatsApp() {
-  const phoneNumber = ''; // To be added by user later
+  const phoneNumber = '+2347035555916'; // To be added by user later
   const message = 'Hello! I would like to know more about your premium art prints.';
 
   // Create the WhatsApp link
