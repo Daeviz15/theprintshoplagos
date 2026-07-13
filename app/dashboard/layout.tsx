@@ -14,11 +14,12 @@ export default function DashboardLayout({
       {/* Minimalist Top Header */}
       <header className="sticky top-0 z-40 w-full bg-brand-offwhite/80 backdrop-blur-xl border-b border-black/5">
         <div className="max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/dashboard" className="text-xl font-black tracking-tight">
+          <Link href="/dashboard" className="hidden md:block text-xl font-black tracking-tight">
             The Print Shop <span className="text-brand-accent">.</span>
           </Link>
-          
-          <HeaderTitle />
+          <div className="ml-auto">
+            <HeaderTitle />
+          </div>
         </div>
       </header>
 

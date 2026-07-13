@@ -55,6 +55,21 @@ export default function HeaderTitle() {
           </h1>
         </motion.div>
       )}
+
+      {pathname === '/dashboard/configurator' && (
+        <motion.div
+          key="configurator-title"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -20 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col items-end text-right"
+        >
+          <h1 className="text-2xl md:text-[2rem] font-semibold tracking-tight text-brand-black leading-none">
+            New Print Job<span className="text-brand-accent">.</span>
+          </h1>
+        </motion.div>
+      )}
     </AnimatePresence>
   );
 }

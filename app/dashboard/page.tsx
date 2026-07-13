@@ -91,7 +91,7 @@ export default async function DashboardPage() {
               </p>
 
               <Link
-                href="/"
+                href="/dashboard/configurator"
                 className="inline-flex items-center justify-center w-full bg-white font-semibold text-sm py-4 rounded-full hover:bg-brand-offwhite transition-colors"
                 style={{ color: '#1a1a1a' }}
               >
