@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useLenis } from 'lenis/react';
 import { useModalStore } from '@/lib/store/useModalStore';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 
 export default function Navbar() {
   const lenis = useLenis();
@@ -51,12 +52,12 @@ export default function Navbar() {
         </nav>
 
         {/* Desktop CTA */}
-        <button
-          onClick={() => useModalStore.getState().setSignUpModalOpen(true)}
+        <Link
+          href="/auth/signup"
           className="hidden md:inline-flex items-center px-5 py-2.5 bg-brand-accent text-white text-[11px] font-medium tracking-[0.1em] uppercase rounded-full hover:bg-brand-black transition-colors duration-300"
         >
           Get your art
-        </button>
+        </Link>
 
         {/* Mobile: Hamburger */}
         <button
@@ -97,15 +98,13 @@ export default function Navbar() {
                   {label}
                 </motion.button>
               ))}
-              <motion.button
-                initial={{ opacity: 0, x: -16 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.18, duration: 0.25 }}
-                onClick={() => { setMenuOpen(false); useModalStore.getState().setSignUpModalOpen(true); }}
-                className="mt-6 w-full py-4 bg-brand-accent text-white font-bold text-sm rounded-full hover:bg-brand-black transition-colors duration-300 shadow-lg"
+              <Link
+                href="/auth/signup"
+                onClick={() => setMenuOpen(false)}
+                className="mt-6 w-full block text-center py-4 bg-brand-accent text-white font-bold text-sm rounded-full hover:bg-brand-black transition-colors duration-300 shadow-lg"
               >
                 Get Your Art
-              </motion.button>
+              </Link>
             </nav>
           </motion.div>
         )}

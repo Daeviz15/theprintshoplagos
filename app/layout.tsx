@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import ContactModal from '@/components/ui/ContactModal';
 import PrintSignUpModal from '@/components/ui/PrintSignUpModal';
+import FloatingWhatsApp from '@/components/ui/FloatingWhatsApp';
 
 export const metadata: Metadata = {
   title: "The Print Shop Lagos",
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body>
         <ContactModal />
         <PrintSignUpModal />
+        <FloatingWhatsApp />
         <SmoothScroll>
           {children}
         </SmoothScroll>

@@ -25,7 +25,6 @@
     0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
-/* White matting */
 .matting {
   background: #f9f6f1;
   padding: 28px;
@@ -33,7 +32,6 @@
   overflow: hidden;
 }
 
-/* Image container */
 .imageWrapper {
   position: relative;
   width: clamp(180px, 22vw, 320px);
@@ -50,7 +48,6 @@
   transform: scale(1.02);
 }
 
-/* Floor shadow */
 .shadow {
   width: 65%;
   height: 1px;
@@ -60,7 +57,6 @@
   border-radius: 50%;
 }
 
-/* Left side action bar */
 .actionBar {
   position: absolute;
   left: calc(-36px - var(--space-6));
