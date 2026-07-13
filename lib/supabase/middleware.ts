@@ -35,13 +35,25 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser()
 
-  // Protect dashboard routes
-  if (
-    !user &&
-    request.nextUrl.pathname.startsWith('/dashboard')
-  ) {
+  const pathname = request.nextUrl.pathname
+
+  // Protect dashboard routes — redirect unauthenticated users to login
+  if (!user && pathname.startsWith('/dashboard')) {
     const url = request.nextUrl.clone()
     url.pathname = '/auth/login'
+    return NextResponse.redirect(url)
+  }
+
+  // Redirect already-authenticated users away from auth pages
+  // (except update-password which requires a recovery session, and callback which processes tokens)
+  if (
+    user &&
+    pathname.startsWith('/auth') &&
+    !pathname.startsWith('/auth/callback') &&
+    !pathname.startsWith('/auth/update-password')
+  ) {
+    const url = request.nextUrl.clone()
+    url.pathname = '/dashboard'
     return NextResponse.redirect(url)
   }
 

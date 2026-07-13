@@ -191,20 +191,20 @@ export default function OrdersCarousel({ orders }: OrdersCarouselProps) {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.92, y: 30 }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="relative bg-white rounded-[2rem] w-full max-w-[1000px] max-h-[95vh] md:h-[650px] overflow-hidden shadow-2xl flex flex-col md:flex-row"
+                className="relative bg-white rounded-3xl md:rounded-[2rem] w-full max-w-[1000px] h-[92vh] md:h-[650px] overflow-hidden shadow-2xl flex flex-col md:flex-row"
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Close Button - Floats over everything */}
                 <button
                   onClick={() => setSelectedOrder(null)}
-                  className="absolute top-4 right-4 md:top-6 md:right-6 z-[1000] p-3 rounded-full bg-white/90 backdrop-blur-sm text-brand-black hover:bg-brand-offwhite transition-colors shadow-md"
+                  className="absolute top-3 right-3 md:top-6 md:right-6 z-[1000] p-2.5 md:p-3 rounded-full bg-white/90 backdrop-blur-sm text-brand-black hover:bg-brand-offwhite transition-colors shadow-md"
                   aria-label="Close"
                 >
-                  <X size={20} strokeWidth={2.5} />
+                  <X className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2.5} />
                 </button>
 
                 {/* Left side: Hero Image */}
-                <div className="relative w-full md:w-1/2 h-[280px] md:h-full flex-shrink-0 bg-brand-black overflow-hidden">
+                <div className="relative w-full md:w-1/2 h-[220px] md:h-full flex-shrink-0 bg-brand-black overflow-hidden">
                   <Image
                     src={selectedOrder.imageSrc}
                     alt={selectedOrder.artworkTitle}
@@ -212,53 +212,53 @@ export default function OrdersCarousel({ orders }: OrdersCarouselProps) {
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <div className="absolute bottom-6 md:bottom-10 left-6 md:left-10 right-6 text-white">
-                    <span className="text-white/70 text-xs font-bold tracking-widest uppercase block mb-2">Order #{selectedOrder.id}</span>
-                    <h2 className="text-3xl md:text-5xl font-semibold leading-[1.1] text-white tracking-tight">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                  <div className="absolute bottom-5 md:bottom-10 left-5 md:left-10 right-5 text-white">
+                    <span className="text-white/70 text-[10px] md:text-xs font-bold tracking-widest uppercase block mb-1 md:mb-2">Order #{selectedOrder.id}</span>
+                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold leading-[1.1] text-white tracking-tight line-clamp-2">
                       {selectedOrder.artworkTitle}
                     </h2>
                   </div>
                 </div>
 
                 {/* Right side: Details Body (Scrollable) */}
-                <div className="w-full md:w-1/2 flex-1 p-6 md:p-10 overflow-y-auto no-scrollbar bg-white">
+                <div className="w-full md:w-1/2 flex-1 p-5 sm:p-6 md:p-10 overflow-y-auto no-scrollbar bg-white flex flex-col min-h-0">
                   
                   {/* Status & Price Row */}
-                  <div className="flex items-center justify-between gap-4 mb-8 pb-8 border-b border-black/5">
-                    <div className={`flex items-center gap-2 px-5 py-2.5 rounded-full border text-sm font-medium ${statusInfo.bg} ${statusInfo.color}`}>
-                      <StatusIcon size={16} strokeWidth={2.5} />
+                  <div className="flex items-center justify-between gap-4 mb-6 md:mb-8 pb-6 md:pb-8 border-b border-black/5 shrink-0">
+                    <div className={`flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-5 md:py-2.5 rounded-full border text-xs md:text-sm font-medium whitespace-nowrap ${statusInfo.bg} ${statusInfo.color}`}>
+                      <StatusIcon size={16} strokeWidth={2.5} className="w-4 h-4" />
                       {selectedOrder.status}
                     </div>
-                    <div className="text-right">
-                      <span className="text-xs text-brand-muted block font-medium uppercase tracking-widest mb-1">Total</span>
-                      <span className="text-3xl font-semibold text-brand-black tracking-tight">{selectedOrder.price}</span>
+                    <div className="text-right flex flex-col items-end">
+                      <span className="text-[10px] md:text-xs text-brand-muted block font-medium uppercase tracking-widest mb-0.5">Total</span>
+                      <span className="text-xl sm:text-2xl md:text-3xl font-semibold text-brand-black tracking-tight leading-none whitespace-nowrap">{selectedOrder.price}</span>
                     </div>
                   </div>
 
                   {/* Info Grid */}
-                  <div className="grid grid-cols-2 gap-4 md:gap-5 mb-8">
-                    <div className="bg-brand-offwhite rounded-[1.25rem] p-5 border border-black/[0.03]">
-                      <span className="text-[10px] font-medium text-brand-muted tracking-widest uppercase block mb-1">Date Ordered</span>
-                      <span className="text-sm font-medium text-brand-black">{selectedOrder.date}</span>
+                  <div className="grid grid-cols-2 gap-3 md:gap-5 mb-6 md:mb-8 shrink-0">
+                    <div className="bg-brand-offwhite rounded-2xl md:rounded-[1.25rem] p-4 md:p-5 border border-black/[0.03]">
+                      <span className="text-[9px] md:text-[10px] font-medium text-brand-muted tracking-widest uppercase block mb-1">Date Ordered</span>
+                      <span className="text-xs md:text-sm font-semibold text-brand-black">{selectedOrder.date}</span>
                     </div>
-                    <div className="bg-brand-offwhite rounded-[1.25rem] p-5 border border-black/[0.03]">
-                      <span className="text-[10px] font-medium text-brand-muted tracking-widest uppercase block mb-1">Size</span>
-                      <span className="text-sm font-medium text-brand-black">{selectedOrder.size || '24 × 36 in'}</span>
+                    <div className="bg-brand-offwhite rounded-2xl md:rounded-[1.25rem] p-4 md:p-5 border border-black/[0.03]">
+                      <span className="text-[9px] md:text-[10px] font-medium text-brand-muted tracking-widest uppercase block mb-1">Size</span>
+                      <span className="text-xs md:text-sm font-semibold text-brand-black">{selectedOrder.size || '24 × 36 in'}</span>
                     </div>
-                    <div className="bg-brand-offwhite rounded-[1.25rem] p-5 border border-black/[0.03]">
-                      <span className="text-[10px] font-medium text-brand-muted tracking-widest uppercase block mb-1">Frame</span>
-                      <span className="text-sm font-medium text-brand-black">{selectedOrder.frame || 'Gallery Black'}</span>
+                    <div className="bg-brand-offwhite rounded-2xl md:rounded-[1.25rem] p-4 md:p-5 border border-black/[0.03]">
+                      <span className="text-[9px] md:text-[10px] font-medium text-brand-muted tracking-widest uppercase block mb-1">Frame</span>
+                      <span className="text-xs md:text-sm font-semibold text-brand-black">{selectedOrder.frame || 'Gallery Black'}</span>
                     </div>
-                    <div className="bg-brand-offwhite rounded-[1.25rem] p-5 border border-black/[0.03]">
-                      <span className="text-[10px] font-medium text-brand-muted tracking-widest uppercase block mb-1">Material</span>
-                      <span className="text-sm font-medium text-brand-black">{selectedOrder.material || 'Canvas'}</span>
+                    <div className="bg-brand-offwhite rounded-2xl md:rounded-[1.25rem] p-4 md:p-5 border border-black/[0.03]">
+                      <span className="text-[9px] md:text-[10px] font-medium text-brand-muted tracking-widest uppercase block mb-1">Material</span>
+                      <span className="text-xs md:text-sm font-semibold text-brand-black">{selectedOrder.material || 'Canvas'}</span>
                     </div>
                     {selectedOrder.trackingNumber && (
-                      <div className="bg-brand-offwhite rounded-[1.25rem] p-5 border border-black/[0.03] col-span-2 flex items-center justify-between">
+                      <div className="bg-brand-offwhite rounded-2xl md:rounded-[1.25rem] p-4 md:p-5 border border-black/[0.03] col-span-2 flex items-center justify-between">
                         <div>
-                          <span className="text-[10px] font-medium text-brand-muted tracking-widest uppercase block mb-1">Tracking Number</span>
-                          <span className="text-sm font-medium text-brand-black">{selectedOrder.trackingNumber}</span>
+                          <span className="text-[9px] md:text-[10px] font-medium text-brand-muted tracking-widest uppercase block mb-1">Tracking Number</span>
+                          <span className="text-xs md:text-sm font-semibold text-brand-black">{selectedOrder.trackingNumber}</span>
                         </div>
                         <button className="text-brand-accent text-xs font-medium hover:underline">Track</button>
                       </div>
@@ -266,19 +266,19 @@ export default function OrdersCarousel({ orders }: OrdersCarouselProps) {
                   </div>
 
                   {/* Description */}
-                  <div className="mb-10">
-                    <span className="text-[10px] font-medium text-brand-muted tracking-widest uppercase block mb-3">Description</span>
-                    <p className="text-sm text-brand-muted leading-relaxed font-medium">
+                  <div className="mb-8 md:mb-10 shrink-0">
+                    <span className="text-[9px] md:text-[10px] font-medium text-brand-muted tracking-widest uppercase block mb-2 md:mb-3">Description</span>
+                    <p className="text-xs md:text-sm text-brand-muted leading-relaxed font-medium">
                       {selectedOrder.description || 'A premium gallery-quality print crafted with expert precision. This art piece has been inspected for perfect color accuracy and mounted seamlessly into your selected frame.'}
                     </p>
                   </div>
 
                   {/* Actions */}
-                  <div className="flex flex-col sm:flex-row gap-3 mt-auto pt-4 border-t border-black/5">
-                    <button className="flex-1 min-w-[160px] bg-brand-black text-white text-sm font-medium py-4 rounded-full hover:bg-brand-black/90 active:scale-[0.98] transition-all">
+                  <div className="flex flex-col sm:flex-row gap-2.5 md:gap-3 mt-auto pt-4 md:pt-6 border-t border-black/5 shrink-0">
+                    <button className="flex-1 min-w-0 bg-brand-black text-white text-xs md:text-sm font-medium py-3.5 md:py-4 rounded-full hover:bg-brand-black/90 active:scale-[0.98] transition-all">
                       Reorder Print
                     </button>
-                    <button className="flex-1 min-w-[160px] bg-white text-brand-black text-sm font-medium py-4 rounded-full border-2 border-black/5 hover:border-black/20 hover:bg-brand-offwhite active:scale-[0.98] transition-all">
+                    <button className="flex-1 min-w-0 bg-white text-brand-black text-xs md:text-sm font-medium py-3.5 md:py-4 rounded-full border border-black/10 hover:border-black/20 hover:bg-brand-offwhite active:scale-[0.98] transition-all">
                       Contact Support
                     </button>
                   </div>

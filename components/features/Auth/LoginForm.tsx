@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useTransition } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
+import { login } from '@/app/auth/actions';
 import GlobalLoader from '@/components/ui/GlobalLoader';
 
 export default function LoginForm() {
@@ -12,18 +13,39 @@ export default function LoginForm() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
+  const [isPending, startTransition] = useTransition();
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   useEffect(() => {
     const errorParam = searchParams.get('error');
     if (errorParam) {
-      setErrorMsg(decodeURIComponent(errorParam));
+      // Cap length to prevent abuse via crafted URLs
+      const decoded = decodeURIComponent(errorParam);
+      setErrorMsg(decoded.length > 200 ? decoded.slice(0, 200) : decoded);
     }
   }, [searchParams]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Integrate with Supabase auth for email/password
+    setErrorMsg(null);
+
+    // Client-side validation
+    if (!email.trim() || !password) {
+      setErrorMsg('Email and password are required.');
+      return;
+    }
+
+    startTransition(async () => {
+      const formData = new FormData();
+      formData.append('email', email);
+      formData.append('password', password);
+
+      const result = await login(formData);
+      // If we get here (no redirect), there was an error
+      if (result?.error) {
+        setErrorMsg(result.error);
+      }
+    });
   };
 
   const handleGoogleLogin = async () => {
@@ -43,6 +65,8 @@ export default function LoginForm() {
       setIsGoogleLoading(false);
     }
   };
+
+  const isLoading = isPending || isGoogleLoading;
 
   return (
     <div className="flex flex-col">
@@ -73,7 +97,8 @@ export default function LoginForm() {
             required
             autoComplete="email"
             placeholder=" "
-            className="peer w-full px-4 pt-5 pb-2 text-sm text-brand-black bg-transparent border border-brand-border rounded-lg outline-none focus:border-brand-black transition-colors duration-200"
+            disabled={isLoading}
+            className="peer w-full px-4 pt-5 pb-2 text-sm text-brand-black bg-transparent border border-brand-border rounded-lg outline-none focus:border-brand-black transition-colors duration-200 disabled:opacity-50"
           />
           <label
             htmlFor="login-email"
@@ -93,7 +118,8 @@ export default function LoginForm() {
             required
             autoComplete="current-password"
             placeholder=" "
-            className="peer w-full px-4 pt-5 pb-2 text-sm text-brand-black bg-transparent border border-brand-border rounded-lg outline-none focus:border-brand-black transition-colors duration-200 pr-12"
+            disabled={isLoading}
+            className="peer w-full px-4 pt-5 pb-2 text-sm text-brand-black bg-transparent border border-brand-border rounded-lg outline-none focus:border-brand-black transition-colors duration-200 pr-12 disabled:opacity-50"
           />
           <label
             htmlFor="login-password"
@@ -131,7 +157,7 @@ export default function LoginForm() {
         <button
           type="button"
           onClick={handleGoogleLogin}
-          disabled={isGoogleLoading}
+          disabled={isLoading}
           className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-brand-border rounded-lg text-sm text-brand-black font-medium hover:bg-brand-black/[0.02] transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -146,9 +172,20 @@ export default function LoginForm() {
         {/* Submit */}
         <button
           type="submit"
-          className="w-full py-3.5 bg-brand-accent text-white text-sm font-semibold rounded-full hover:bg-brand-accent/90 transition-colors duration-200 mt-2"
+          disabled={isLoading}
+          className="w-full py-3.5 bg-brand-accent text-white text-sm font-semibold rounded-full hover:bg-brand-accent/90 transition-colors duration-200 mt-2 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
-          Login
+          {isPending ? (
+            <>
+              <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+              </svg>
+              Signing in...
+            </>
+          ) : (
+            'Login'
+          )}
         </button>
       </form>
 

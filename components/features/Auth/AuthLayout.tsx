@@ -30,6 +30,7 @@ export default function AuthLayout({
           src={imageSrc}
           alt="Background"
           fill
+          sizes="100vw"
           className="object-cover opacity-30 scale-110"
           priority
         />

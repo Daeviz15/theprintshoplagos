@@ -25,6 +25,7 @@ export default function RecentOrderCard({
           src={imageSrc} 
           alt={artworkTitle} 
           fill 
+          sizes="(max-width: 640px) 100vw, 140px"
           className="object-cover"
         />
       </div>
