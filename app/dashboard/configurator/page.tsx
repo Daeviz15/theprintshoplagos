@@ -202,10 +202,11 @@ export default function ConfiguratorPage() {
       <div className="
         w-full lg:w-1/2 
         flex flex-col gap-8 
-        pb-24 lg:pb-20 pt-8 lg:pt-0
-        mt-[55dvh] lg:mt-0
+        pb-10 lg:pb-20 pt-4 lg:pt-0
+        fixed bottom-0 left-0 right-0 h-[45dvh] overflow-y-auto
+        lg:relative lg:h-auto lg:overflow-y-visible lg:bottom-auto lg:left-auto lg:right-auto
         bg-brand-black lg:bg-transparent 
-        relative z-10 
+        z-30 lg:z-10 
       ">
         {/* Mobile drag handle */}
         <div className="lg:hidden flex justify-center pt-6 pb-1">
