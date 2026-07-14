@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useModalStore } from '@/lib/store/useModalStore';
+import Link from 'next/link';
 
 const categories = ['All', 'Art', 'Portrait', 'Fashion', 'Cultural', 'Lifestyle', 'Landscape'];
 
@@ -320,8 +321,8 @@ export default function ProductSection() {
 
         {/* View More Button */}
         <div className="mt-16">
-          <button
-            onClick={() => useModalStore.getState().setSignUpModalOpen(true)}
+          <Link
+            href="/auth/signup"
             className="flex items-center gap-2 px-8 py-4 bg-brand-accent text-white text-[13px] font-bold rounded-full hover:bg-brand-accent/90 transition-all shadow-md group border border-brand-accent"
           >
             View More
@@ -333,7 +334,7 @@ export default function ProductSection() {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </button>
+          </Link>
         </div>
 
       </div>

@@ -23,15 +23,15 @@ export default function Footer() {
           <p className="mt-5 text-sm text-white/50 max-w-md leading-relaxed">
             Get premium gallery-quality prints delivered to your door — that's exciting
           </p>
-          <button
-            onClick={() => useModalStore.getState().setSignUpModalOpen(true)}
+          <Link
+            href="/auth/signup"
             className="mt-10 flex items-center gap-3 px-8 py-4 rounded-full bg-brand-accent text-white font-bold text-sm hover:bg-brand-accent/90 transition-all duration-300 shadow-xl"
           >
             <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
             </svg>
             Get Your Print
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -55,12 +55,12 @@ export default function Footer() {
             <Link href="#" className="text-[14px] text-white/50 hover:text-white transition-colors duration-200">About Us</Link>
             <Link href="#" className="text-[14px] text-white/50 hover:text-white transition-colors duration-200">Products</Link>
             <Link href="#contact" className="text-[14px] text-white/50 hover:text-white transition-colors duration-200">Contact Us</Link>
-            <button
-              onClick={() => useModalStore.getState().setSignUpModalOpen(true)}
+            <Link
+              href="/auth/signup"
               className="text-left text-[14px] text-white/50 hover:text-white transition-colors duration-200"
             >
               Get a Print
-            </button>
+            </Link>
           </div>
 
           {/* Right — Subscribe (from reference) */}

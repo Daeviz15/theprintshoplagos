@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { Frame, Printer, Image as ImageIcon, Layers, Palette } from 'lucide-react';
 import type { FrameStyle } from './HeroSection';
 import { useModalStore } from '@/lib/store/useModalStore';
@@ -62,6 +63,7 @@ interface BrandBarProps {
 }
 
 export default function BrandBar({ activeFrame, onSelectFrame, activeImage, onSelectImage, activeBgColor, onSelectBgColor, activeMaterial, onSelectMaterial }: BrandBarProps) {
+  const router = useRouter();
   const [showFramesMenu, setShowFramesMenu] = useState(false);
   const [showImagesMenu, setShowImagesMenu] = useState(false);
   const [showColorsMenu, setShowColorsMenu] = useState(false);
@@ -173,7 +175,7 @@ export default function BrandBar({ activeFrame, onSelectFrame, activeImage, onSe
             ))}
           </ul>
           <button
-            onClick={() => useModalStore.getState().setSignUpModalOpen(true)}
+            onClick={() => router.push('/auth/signup')}
             className="w-full py-2.5 px-3 bg-brand-accent hover:bg-brand-accent/90 text-white rounded-lg font-semibold text-[12px] transition-all shadow-md flex items-center justify-center gap-2 group"
           >
             Get a Print
