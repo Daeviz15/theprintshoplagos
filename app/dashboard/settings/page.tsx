@@ -19,145 +19,121 @@ export default async function SettingsPage() {
   return (
     <div className="w-full max-w-2xl mx-auto flex flex-col gap-8">
 
-      {/* Profile Header */}
-      <div className="flex items-center gap-5">
+      {/* Profile Header Card */}
+      <div className="flex items-center gap-5 p-6 rounded-3xl bg-white/5 border border-white/10">
         {avatarUrl ? (
           <img
             src={avatarUrl}
             alt={fullName}
-            className="w-16 h-16 rounded-full object-cover ring-2 ring-black/5"
+            className="w-16 h-16 rounded-full object-cover ring-2 ring-brand-accent/50"
             referrerPolicy="no-referrer"
           />
         ) : (
-          <div className="w-16 h-16 rounded-full bg-brand-black text-white flex items-center justify-center text-xl font-medium">
+          <div className="w-16 h-16 rounded-full bg-brand-accent/20 border border-brand-accent/30 text-brand-accent flex items-center justify-center text-xl font-heading font-extrabold">
             {initials}
           </div>
         )}
         <div>
-          <h2 className="text-xl font-semibold tracking-tight text-brand-black">{fullName || 'Your Account'}</h2>
-          <p className="text-sm text-brand-muted mt-0.5">{email}</p>
+          <h2 className="text-xl font-heading font-extrabold tracking-tight text-white">{fullName || 'Your Account'}</h2>
+          <p className="text-sm text-white/50 mt-0.5">{email}</p>
         </div>
       </div>
 
-      {/* Divider */}
-      <div className="h-px bg-black/[0.04]" />
-
       {/* Profile Section */}
-      <section>
-        <div className="flex items-center justify-between mb-5">
-          <h3 className="text-sm font-medium text-brand-muted uppercase tracking-widest">Profile</h3>
+      <section className="rounded-3xl bg-white/5 border border-white/10 p-6 md:p-8 flex flex-col gap-6">
+        <div className="flex items-center gap-3 pb-4 border-b border-white/10">
+          <div className="w-1 h-5 rounded-full bg-brand-accent" />
+          <h3 className="text-xs font-bold text-white/60 uppercase tracking-widest">Profile</h3>
         </div>
 
         <div className="flex flex-col gap-5">
           <div>
-            <label className="block text-xs font-medium text-brand-muted mb-2 uppercase tracking-wider">Full Name</label>
-            <input 
-              type="text" 
-              defaultValue={fullName} 
+            <label className="block text-[11px] font-semibold text-white/50 mb-2 uppercase tracking-widest">Full Name</label>
+            <input
+              type="text"
+              defaultValue={fullName}
               placeholder="Enter your full name"
-              className="w-full px-5 py-3.5 rounded-2xl border border-black/[0.06] bg-white focus:outline-none focus:ring-2 focus:ring-brand-accent/20 focus:border-brand-accent/30 transition-all text-sm font-medium text-brand-black placeholder:text-brand-muted/40"
+              className="w-full px-5 py-4 rounded-2xl border border-white/10 bg-white/5 focus:outline-none focus:ring-2 focus:ring-brand-accent/40 focus:border-brand-accent/50 transition-all text-sm font-medium text-white placeholder:text-white/20"
             />
           </div>
-          
+
           <div>
-            <label className="block text-xs font-medium text-brand-muted mb-2 uppercase tracking-wider">Email</label>
-            <input 
-              type="email" 
+            <label className="block text-[11px] font-semibold text-white/50 mb-2 uppercase tracking-widest">Email</label>
+            <input
+              type="email"
               disabled
-              defaultValue={email} 
-              className="w-full px-5 py-3.5 rounded-2xl border border-black/[0.04] bg-brand-offwhite text-brand-muted cursor-not-allowed focus:outline-none text-sm font-medium"
+              defaultValue={email}
+              className="w-full px-5 py-4 rounded-2xl border border-white/5 bg-white/[0.03] text-white/30 cursor-not-allowed focus:outline-none text-sm font-medium"
             />
-            <p className="text-[11px] text-brand-muted/60 mt-2 leading-relaxed">
+            <p className="text-[11px] text-white/30 mt-2 leading-relaxed">
               Managed by your Google account. Cannot be changed here.
             </p>
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-brand-muted mb-2 uppercase tracking-wider">Phone Number</label>
-            <input 
-              type="tel" 
+            <label className="block text-[11px] font-semibold text-white/50 mb-2 uppercase tracking-widest">Phone Number</label>
+            <input
+              type="tel"
               placeholder="+234 800 000 0000"
-              className="w-full px-5 py-3.5 rounded-2xl border border-black/[0.06] bg-white focus:outline-none focus:ring-2 focus:ring-brand-accent/20 focus:border-brand-accent/30 transition-all text-sm font-medium text-brand-black placeholder:text-brand-muted/40"
+              className="w-full px-5 py-4 rounded-2xl border border-white/10 bg-white/5 focus:outline-none focus:ring-2 focus:ring-brand-accent/40 focus:border-brand-accent/50 transition-all text-sm font-medium text-white placeholder:text-white/20"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-brand-muted mb-2 uppercase tracking-wider">Delivery Address</label>
+            <label className="block text-[11px] font-semibold text-white/50 mb-2 uppercase tracking-widest">Delivery Address</label>
             <textarea
               rows={3}
               placeholder="Enter your default delivery address"
-              className="w-full px-5 py-3.5 rounded-2xl border border-black/[0.06] bg-white focus:outline-none focus:ring-2 focus:ring-brand-accent/20 focus:border-brand-accent/30 transition-all text-sm font-medium text-brand-black placeholder:text-brand-muted/40 resize-none"
+              className="w-full px-5 py-4 rounded-2xl border border-white/10 bg-white/5 focus:outline-none focus:ring-2 focus:ring-brand-accent/40 focus:border-brand-accent/50 transition-all text-sm font-medium text-white placeholder:text-white/20 resize-none"
             />
           </div>
 
           <div className="flex justify-end pt-2">
-            <button className="bg-brand-black text-white px-8 py-3.5 rounded-full text-sm font-medium hover:bg-brand-black/90 active:scale-[0.98] transition-all">
+            <button className="bg-brand-accent text-white px-8 py-3.5 rounded-full text-sm font-bold hover:bg-brand-accent/90 active:scale-[0.98] transition-all shadow-lg shadow-brand-accent/20">
               Save Changes
             </button>
           </div>
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="h-px bg-black/[0.04]" />
-
       {/* Notifications Section */}
-      <section>
-        <div className="flex items-center justify-between mb-5">
-          <h3 className="text-sm font-medium text-brand-muted uppercase tracking-widest">Notifications</h3>
+      <section className="rounded-3xl bg-white/5 border border-white/10 p-6 md:p-8 flex flex-col gap-1">
+        <div className="flex items-center gap-3 pb-4 border-b border-white/10 mb-2">
+          <div className="w-1 h-5 rounded-full bg-brand-accent" />
+          <h3 className="text-xs font-bold text-white/60 uppercase tracking-widest">Notifications</h3>
         </div>
 
-        <div className="flex flex-col gap-1">
-          <div className="flex items-center justify-between py-4 border-b border-black/[0.03]">
+        {[
+          { label: 'Order Updates', desc: 'Get notified when your order status changes', defaultChecked: true },
+          { label: 'Promotions', desc: 'Receive special offers and discounts', defaultChecked: false },
+          { label: 'WhatsApp Notifications', desc: 'Receive order updates via WhatsApp', defaultChecked: true },
+        ].map((item, i, arr) => (
+          <div key={item.label} className={`flex items-center justify-between py-5 ${i < arr.length - 1 ? 'border-b border-white/[0.06]' : ''}`}>
             <div>
-              <span className="text-sm font-medium text-brand-black block">Order Updates</span>
-              <span className="text-xs text-brand-muted mt-0.5 block">Get notified when your order status changes</span>
+              <span className="text-sm font-semibold text-white block">{item.label}</span>
+              <span className="text-xs text-white/40 mt-0.5 block">{item.desc}</span>
             </div>
-            <label className="relative inline-flex items-center cursor-pointer">
-              <input type="checkbox" defaultChecked className="sr-only peer" />
-              <div className="w-11 h-6 bg-black/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-black" />
+            <label className="relative inline-flex items-center cursor-pointer flex-shrink-0 ml-4">
+              <input type="checkbox" defaultChecked={item.defaultChecked} className="sr-only peer" />
+              <div className="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-accent" />
             </label>
           </div>
-
-          <div className="flex items-center justify-between py-4 border-b border-black/[0.03]">
-            <div>
-              <span className="text-sm font-medium text-brand-black block">Promotions</span>
-              <span className="text-xs text-brand-muted mt-0.5 block">Receive special offers and discounts</span>
-            </div>
-            <label className="relative inline-flex items-center cursor-pointer">
-              <input type="checkbox" className="sr-only peer" />
-              <div className="w-11 h-6 bg-black/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-black" />
-            </label>
-          </div>
-
-          <div className="flex items-center justify-between py-4">
-            <div>
-              <span className="text-sm font-medium text-brand-black block">WhatsApp Notifications</span>
-              <span className="text-xs text-brand-muted mt-0.5 block">Receive order updates via WhatsApp</span>
-            </div>
-            <label className="relative inline-flex items-center cursor-pointer">
-              <input type="checkbox" defaultChecked className="sr-only peer" />
-              <div className="w-11 h-6 bg-black/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-black" />
-            </label>
-          </div>
-        </div>
+        ))}
       </section>
 
-      {/* Divider */}
-      <div className="h-px bg-black/[0.04]" />
-
       {/* Danger Zone */}
-      <section className="pb-8">
-        <div className="flex items-center justify-between mb-5">
-          <h3 className="text-sm font-medium text-red-400 uppercase tracking-widest">Danger Zone</h3>
+      <section className="rounded-3xl border border-red-500/20 bg-red-500/5 p-6 md:p-8 pb-8">
+        <div className="flex items-center gap-3 pb-4 border-b border-red-500/10 mb-6">
+          <div className="w-1 h-5 rounded-full bg-red-500" />
+          <h3 className="text-xs font-bold text-red-400/80 uppercase tracking-widest">Danger Zone</h3>
         </div>
 
-        <div className="flex items-center justify-between bg-red-50/50 rounded-2xl p-5 border border-red-100">
+        <div className="flex items-center justify-between">
           <div>
-            <span className="text-sm font-medium text-brand-black block">Delete Account</span>
-            <span className="text-xs text-brand-muted mt-0.5 block">Permanently remove your account and all data</span>
+            <span className="text-sm font-semibold text-white block">Delete Account</span>
+            <span className="text-xs text-white/40 mt-0.5 block">Permanently remove your account and all data</span>
           </div>
-          <button className="text-red-500 text-sm font-medium px-5 py-2.5 rounded-full border border-red-200 hover:bg-red-50 active:scale-[0.98] transition-all">
+          <button className="text-red-400 text-sm font-semibold px-5 py-2.5 rounded-full border border-red-500/30 hover:bg-red-500/10 active:scale-[0.98] transition-all flex-shrink-0 ml-4">
             Delete
           </button>
         </div>

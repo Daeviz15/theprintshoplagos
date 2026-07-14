@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function AboutSection() {
   return (
-    <section id="about" className="relative w-full bg-white py-20 lg:py-28 px-6 md:px-8 lg:px-16 overflow-hidden">
+    <section id="about" className="relative w-full py-20 lg:py-28 px-6 md:px-8 lg:px-16 overflow-hidden bg-white">
       <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row items-center gap-8 sm:gap-10 md:gap-28 lg:gap-24">
 
         {/* ── Left: Overlapping Framed Art ── */}
@@ -15,7 +15,7 @@ export default function AboutSection() {
             className="absolute left-0 top-6 w-[50%] sm:w-[55%] z-10"
             style={{ transform: 'rotate(-6deg)' }}
           >
-            <div className="rounded-xl overflow-hidden border-[5px] sm:border-[6px] border-brand-black shadow-2xl">
+            <div className="rounded-xl overflow-hidden border-[5px] sm:border-[6px] border-black/5 shadow-2xl">
               <div className="relative aspect-[3/4] w-full">
                 <Image
                   src="/art_1.png"
@@ -33,7 +33,7 @@ export default function AboutSection() {
             className="absolute left-[30%] top-0 w-[55%] sm:w-[60%] z-20"
             style={{ transform: 'rotate(4deg)' }}
           >
-            <div className="rounded-xl overflow-hidden border-[5px] sm:border-[6px] border-brand-black shadow-2xl">
+            <div className="rounded-xl overflow-hidden border-[5px] sm:border-[6px] border-black/5 shadow-2xl">
               <div className="relative aspect-[3/4] w-full">
                 <Image
                   src="/art_2.png"
@@ -53,7 +53,7 @@ export default function AboutSection() {
             Our Story
           </span>
 
-          <h2 className="text-[clamp(2rem,5vw,3.2rem)] font-black leading-[1.05] tracking-tight text-brand-black">
+          <h2 className="text-[clamp(2rem,5vw,3.2rem)] font-heading font-extrabold leading-[1.05] tracking-tight text-brand-black">
             Where Art Meets{' '}
             <br className="hidden lg:block" />
             Precision Craft

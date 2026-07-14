@@ -17,7 +17,7 @@ export default function HeaderTitle() {
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col items-end text-right"
         >
-          <h1 className="text-2xl md:text-[2rem] font-semibold tracking-tight text-brand-black leading-none">
+          <h1 className="text-2xl md:text-[2rem] font-heading font-extrabold tracking-tight text-white leading-none">
             My Orders<span className="text-brand-accent">.</span>
           </h1>
           <p className="hidden md:block text-sm font-medium text-brand-muted mt-1.5">
@@ -35,7 +35,7 @@ export default function HeaderTitle() {
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col items-end text-right"
         >
-          <h1 className="text-2xl md:text-[2rem] font-semibold tracking-tight text-brand-black leading-none">
+          <h1 className="text-2xl md:text-[2rem] font-heading font-extrabold tracking-tight text-white leading-none">
             Overview<span className="text-brand-accent">.</span>
           </h1>
         </motion.div>
@@ -50,7 +50,7 @@ export default function HeaderTitle() {
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col items-end text-right"
         >
-          <h1 className="text-2xl md:text-[2rem] font-semibold tracking-tight text-brand-black leading-none">
+          <h1 className="text-2xl md:text-[2rem] font-heading font-extrabold tracking-tight text-white leading-none">
             Settings<span className="text-brand-accent">.</span>
           </h1>
         </motion.div>
@@ -63,9 +63,9 @@ export default function HeaderTitle() {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col items-end text-right"
+          className="hidden md:flex flex-col items-end text-right"
         >
-          <h1 className="text-2xl md:text-[2rem] font-semibold tracking-tight text-brand-black leading-none">
+          <h1 className="text-2xl md:text-[2rem] font-heading font-extrabold tracking-tight text-white leading-none">
             New Print Job<span className="text-brand-accent">.</span>
           </h1>
         </motion.div>

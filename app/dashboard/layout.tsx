@@ -1,7 +1,7 @@
 import React from 'react';
-import Link from 'next/link';
+import DashboardHeader from '@/components/features/Dashboard/DashboardHeader';
 import FloatingMenu from '@/components/features/Dashboard/FloatingMenu';
-import HeaderTitle from '@/components/features/Dashboard/HeaderTitle';
+import OrdersLayout from '@/components/features/Dashboard/OrdersLayout';
 
 export default function DashboardLayout({
   children,
@@ -9,28 +9,19 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-dvh bg-brand-offwhite text-brand-black flex flex-col font-sans selection:bg-brand-accent/20">
-      
-      {/* Minimalist Top Header */}
-      <header className="sticky top-0 z-40 w-full bg-brand-offwhite/80 backdrop-blur-xl border-b border-black/5">
-        <div className="max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/dashboard" className="hidden md:block text-xl font-black tracking-tight">
-            The Print Shop <span className="text-brand-accent">.</span>
-          </Link>
-          <div className="ml-auto">
-            <HeaderTitle />
-          </div>
-        </div>
-      </header>
+    <div className="min-h-dvh bg-brand-black text-brand-white flex flex-col font-sans selection:bg-brand-accent/20">
 
-      {/* Main Content Area */}
-      <main className="flex-1 w-full max-w-[1200px] mx-auto px-4 md:px-6 py-6 pb-32 md:pt-32 md:pb-24">
+      {/* Smart Header — inlines nav pill on orders page */}
+      <DashboardHeader />
+
+      {/* Main Content Area — OrdersLayout handles compact layout on orders page */}
+      <OrdersLayout>
         {children}
-      </main>
+      </OrdersLayout>
 
-      {/* Desktop Floating Action Menu */}
+      {/* Floating Action Menu — hidden on desktop orders page (pill is in header) */}
       <FloatingMenu />
-      
+
     </div>
   );
 }

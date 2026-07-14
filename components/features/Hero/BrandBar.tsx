@@ -20,15 +20,16 @@ const frameOptions: { style: FrameStyle; label: string; background: string }[] =
   { style: 'vintage-gold', label: 'Gold', background: 'linear-gradient(135deg, #fceca2, #c5a059)' },
   { style: 'acrylic', label: 'Acrylic', background: 'rgba(255, 255, 255, 0.5)' },
   { style: 'wooden', label: 'Wood', background: 'repeating-linear-gradient(45deg, #5c3a21, #5c3a21 4px, #8b5a2b 4px, #8b5a2b 8px)' },
+  { style: 'matted-black', label: 'Matted', background: '#ffffff' },
 ];
 
 const imageOptions = [
-  { src: '/hero_image.png', label: 'Artwork 1' },
-  { src: '/img_1.png', label: 'Artwork 2' },
-  { src: '/img_2.png', label: 'Artwork 3' },
-  { src: '/imag_3.png', label: 'Artwork 4' },
-  { src: '/imag_4.png', label: 'Artwork 5' },
-  { src: '/img_5.png', label: 'Artwork 6' },
+  { src: '/owners_product/portrait-1.jpg', label: 'Portrait' },
+  { src: '/owners_product/fashion-1.jpg', label: 'Fashion' },
+  { src: '/owners_product/cultural-1.jpg', label: 'Cultural' },
+  { src: '/owners_product/lifestyle-1.jpg', label: 'Lifestyle' },
+  { src: '/owners_product/landscape-1.jpg', label: 'Landscape' },
+  { src: '/owners_product/portrait-2.jpg', label: 'Portrait 2' },
 ];
 
 const colorOptions = [
@@ -43,10 +44,10 @@ const colorOptions = [
 ];
 
 const materialOptions = [
-  { id: 'matte', label: 'Matte' },
-  { id: 'glossy', label: 'Glossy' },
   { id: 'canvas', label: 'Canvas' },
-  { id: 'acrylic-glass', label: 'Acrylic' },
+  { id: 'matt', label: 'Matt' },
+  { id: 'photo', label: 'Photo paper' },
+  { id: 'gloss', label: 'Gloss photopaper' },
 ];
 
 interface BrandBarProps {
@@ -99,7 +100,7 @@ export default function BrandBar({ activeFrame, onSelectFrame, activeImage, onSe
 
   /* Shared popover wrapper — compact */
   const popoverClass = (show: boolean) =>
-    `absolute bottom-full mb-3 bg-white rounded-xl shadow-lg border border-brand-border/80 z-30 transition-all duration-200 ease-out origin-bottom ${
+    `absolute bottom-full mb-3 bg-[#1a1a1a] rounded-xl shadow-lg border border-white/10 z-30 transition-all duration-200 ease-out origin-bottom ${
       show ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto' : 'opacity-0 scale-95 translate-y-3 pointer-events-none'
     }`;
 
@@ -112,10 +113,10 @@ export default function BrandBar({ activeFrame, onSelectFrame, activeImage, onSe
           <button
             key={opt.style}
             onClick={() => onSelectFrame(opt.style)}
-            className={`relative z-10 flex flex-col items-center gap-1.5 p-2 rounded-lg transition-colors ${activeFrame === opt.style ? 'bg-brand-offwhite' : 'hover:bg-brand-black/5'}`}
+            className={`relative z-10 flex flex-col items-center gap-1.5 p-2 rounded-lg transition-colors ${activeFrame === opt.style ? 'bg-white/10' : 'hover:bg-white/5'}`}
           >
             <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-brand-border shadow-sm" style={{ background: opt.background }} />
-            <span className="text-[8px] sm:text-[9px] font-semibold text-brand-black uppercase tracking-wider whitespace-nowrap">{opt.label}</span>
+            <span className="text-[8px] sm:text-[9px] font-semibold text-white/70 uppercase tracking-wider whitespace-nowrap">{opt.label}</span>
           </button>
         ))}
       </div>
@@ -126,9 +127,9 @@ export default function BrandBar({ activeFrame, onSelectFrame, activeImage, onSe
           <button
             key={opt.src}
             onClick={() => onSelectImage(opt.src)}
-            className={`relative z-10 p-1 rounded-lg transition-colors ${activeImage === opt.src ? 'bg-brand-offwhite ring-2 ring-brand-accent' : 'hover:bg-brand-black/5'}`}
+            className={`relative z-10 p-1 rounded-lg transition-colors ${activeImage === opt.src ? 'bg-white/10 ring-2 ring-brand-accent' : 'hover:bg-white/5'}`}
           >
-            <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-md overflow-hidden border border-brand-border">
+            <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-md overflow-hidden border border-white/10">
               <Image src={opt.src} alt={opt.label} fill className="object-cover object-center" sizes="48px" />
             </div>
           </button>
@@ -141,13 +142,13 @@ export default function BrandBar({ activeFrame, onSelectFrame, activeImage, onSe
           <button
             key={opt.color}
             onClick={() => onSelectBgColor(opt.color)}
-            className={`relative z-10 flex flex-col items-center gap-1 p-1.5 rounded-lg transition-colors ${activeBgColor === opt.color ? 'bg-brand-offwhite ring-2 ring-brand-accent' : 'hover:bg-brand-black/5'}`}
+            className={`relative z-10 flex flex-col items-center gap-1 p-1.5 rounded-lg transition-colors ${activeBgColor === opt.color ? 'bg-white/10 ring-2 ring-brand-accent' : 'hover:bg-white/5'}`}
           >
             <div
               className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full border shadow-sm ${opt.color === '#1c1c1c' ? 'border-white/20' : 'border-brand-border'}`}
               style={{ backgroundColor: opt.color }}
             />
-            <span className="text-[7px] sm:text-[8px] font-semibold text-brand-black uppercase tracking-wider whitespace-nowrap">{opt.label}</span>
+            <span className="text-[7px] sm:text-[8px] font-semibold text-white/70 uppercase tracking-wider whitespace-nowrap">{opt.label}</span>
           </button>
         ))}
       </div>
@@ -156,14 +157,14 @@ export default function BrandBar({ activeFrame, onSelectFrame, activeImage, onSe
       <div className={`${popoverClass(showPrintMenu)} w-64 sm:w-72 p-4`}>
         <div className="flex flex-col gap-3 relative z-10">
           <div>
-            <h3 className="text-base font-black text-brand-black tracking-tight">Ready to print?</h3>
-            <p className="text-[11px] sm:text-[12px] text-brand-muted mt-1 leading-relaxed">
+            <h3 className="text-base font-black text-white tracking-tight">Ready to print?</h3>
+            <p className="text-[11px] sm:text-[12px] text-white/60 mt-1 leading-relaxed">
               Gallery-quality printing with premium framing options.
             </p>
           </div>
           <ul className="space-y-2">
             {['Museum-grade materials', 'Custom sizes', 'Fast Lagos delivery'].map((item) => (
-              <li key={item} className="flex items-center gap-2 text-[11px] sm:text-[12px] font-medium text-brand-black">
+              <li key={item} className="flex items-center gap-2 text-[11px] sm:text-[12px] font-medium text-white/80">
                 <div className="w-4 h-4 rounded-full bg-brand-accent/10 flex items-center justify-center text-brand-accent flex-shrink-0">
                   <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
                 </div>
@@ -173,7 +174,7 @@ export default function BrandBar({ activeFrame, onSelectFrame, activeImage, onSe
           </ul>
           <button
             onClick={() => useModalStore.getState().setSignUpModalOpen(true)}
-            className="w-full py-2.5 px-3 bg-brand-black hover:bg-brand-black/90 text-white rounded-lg font-semibold text-[12px] transition-all shadow-md flex items-center justify-center gap-2 group"
+            className="w-full py-2.5 px-3 bg-brand-accent hover:bg-brand-accent/90 text-white rounded-lg font-semibold text-[12px] transition-all shadow-md flex items-center justify-center gap-2 group"
           >
             Get a Print
             <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
@@ -188,7 +189,7 @@ export default function BrandBar({ activeFrame, onSelectFrame, activeImage, onSe
             key={opt.id}
             onClick={() => onSelectMaterial(opt.id)}
             className={`relative z-10 flex items-center justify-center px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg transition-all text-[10px] sm:text-[11px] font-bold uppercase tracking-wider whitespace-nowrap ${
-              activeMaterial === opt.id ? 'bg-brand-black text-white shadow-md' : 'bg-brand-black/5 hover:bg-brand-black/10 text-brand-black'
+              activeMaterial === opt.id ? 'bg-brand-accent text-white shadow-md' : 'bg-white/10 hover:bg-white/20 text-white/70'
             }`}
           >
             {opt.label}
@@ -209,8 +210,8 @@ export default function BrandBar({ activeFrame, onSelectFrame, activeImage, onSe
               className={`
                 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 flex-shrink-0
                 ${isActive
-                  ? 'bg-brand-black text-brand-white ring-2 ring-brand-accent ring-offset-2 ring-offset-brand-offwhite scale-110 shadow-lg'
-                  : 'bg-brand-black/5 text-brand-muted hover:bg-brand-black/10 hover:text-brand-black hover:scale-105'
+                  ? 'bg-white text-brand-black ring-2 ring-brand-accent ring-offset-2 ring-offset-brand-black scale-110 shadow-lg'
+                  : 'bg-white/10 text-white/60 hover:bg-white/20 hover:text-white hover:scale-105'
                 }
               `}
             >

@@ -29,7 +29,7 @@ export default function Navbar() {
     <>
       <header className="fixed top-0 left-0 w-full z-50 px-6 lg:px-12 h-16 flex items-center justify-between">
         {/* Frosted glass background */}
-        <div className="absolute inset-0 bg-brand-offwhite/80 backdrop-blur-md border-b border-brand-border/60 -z-10" />
+        <div className="absolute inset-0 bg-white/80 backdrop-blur-md border-b border-black/5 -z-10" />
 
         {/* Logo */}
         <button
@@ -54,7 +54,7 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <Link
           href="/auth/signup"
-          className="hidden md:inline-flex items-center px-5 py-2.5 bg-brand-accent text-white text-[11px] font-medium tracking-[0.1em] uppercase rounded-full hover:bg-brand-black transition-colors duration-300"
+          className="hidden md:inline-flex items-center px-5 py-2.5 bg-brand-accent text-white text-[11px] font-medium tracking-[0.1em] uppercase rounded-full hover:bg-brand-accent/90 transition-colors duration-300"
         >
           Get your art
         </Link>
@@ -79,7 +79,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="fixed top-16 left-0 w-full z-40 bg-brand-offwhite/95 backdrop-blur-xl border-b border-brand-border shadow-2xl md:hidden"
+            className="fixed top-16 left-0 w-full z-40 bg-white/95 backdrop-blur-xl border-b border-black/5 shadow-2xl md:hidden"
           >
             <nav className="flex flex-col px-6 py-8 gap-2">
               {[
@@ -93,7 +93,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.06, duration: 0.25 }}
                   onClick={() => scrollTo(id)}
-                  className="text-left py-4 text-xl font-bold text-brand-black border-b border-brand-border/40 hover:text-brand-accent transition-colors duration-200"
+                  className="text-left py-4 text-xl font-heading font-extrabold text-brand-black border-b border-black/5 hover:text-brand-accent transition-colors duration-200"
                 >
                   {label}
                 </motion.button>
@@ -101,7 +101,7 @@ export default function Navbar() {
               <Link
                 href="/auth/signup"
                 onClick={() => setMenuOpen(false)}
-                className="mt-6 w-full block text-center py-4 bg-brand-accent text-white font-bold text-sm rounded-full hover:bg-brand-black transition-colors duration-300 shadow-lg"
+                className="mt-6 w-full block text-center py-4 bg-brand-accent text-white font-bold text-sm rounded-full hover:bg-brand-accent/90 transition-colors duration-300 shadow-lg"
               >
                 Get Your Art
               </Link>

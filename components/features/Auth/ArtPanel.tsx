@@ -12,7 +12,7 @@ export default function ArtPanel({ imageSrc }: ArtPanelProps) {
         src={imageSrc}
         alt="Featured Artwork"
         fill
-        className="object-cover"
+        className="object-cover grayscale"
         priority
         sizes="(max-width: 1024px) 100vw, 50vw"
       />

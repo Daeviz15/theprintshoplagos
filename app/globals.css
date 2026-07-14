@@ -14,7 +14,9 @@
   --color-brand-border:   #e5e5e5;
 
   /* Typography */
-  --font-sans:  'Inter', system-ui, sans-serif;
+  --font-heading: var(--font-heading), sans-serif;
+  --font-display: var(--font-display), sans-serif;
+  --font-sans:    var(--font-sans), system-ui, sans-serif;
 
   /* Custom easings */
   --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
@@ -23,8 +25,8 @@
 
 /* ─── Base ───────────────────────────────────────────────────────────── */
 html {
-  background: var(--color-brand-offwhite);
-  color: var(--color-brand-black);
+  background: var(--color-brand-black);
+  color: var(--color-brand-white);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -37,7 +39,7 @@ html::-webkit-scrollbar {
 }
 
 body {
-  background: var(--color-brand-offwhite);
+  background: var(--color-brand-black);
   min-height: 100vh;
 }
 
@@ -106,6 +108,15 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 
     0 35px 60px -15px rgba(0,0,0,0.3),
     inset 0 0 8px rgba(0,0,0,0.05);
+}
+
+.frame-matted-black {
+  padding: 10%; /* thick white matte */
+  background: #fdfdfd;
+  border: clamp(12px, 2vw, 24px) solid #1a1a1a;
+  box-shadow: 
+    0 35px 60px -15px rgba(0,0,0,0.4),
+    inset 0 0 12px rgba(0,0,0,0.1);
 }
 
 .frame-wooden {

@@ -5,8 +5,8 @@ import Image from 'next/image';
 import Navbar from '@/components/layout/Navbar';
 import BrandBar from './BrandBar';
 
-export type FrameStyle = 'none' | 'vintage-gold' | 'acrylic' | 'gallery' | 'wooden';
-export type MaterialStyle = 'matte' | 'glossy' | 'acrylic-glass' | 'canvas';
+export type FrameStyle = 'none' | 'vintage-gold' | 'acrylic' | 'gallery' | 'wooden' | 'matted-black';
+export type MaterialStyle = 'canvas' | 'matt' | 'photo' | 'gloss';
 
 const frameClasses: Record<FrameStyle, string> = {
   none: 'frame-base',
@@ -14,14 +14,15 @@ const frameClasses: Record<FrameStyle, string> = {
   'acrylic': 'frame-base frame-acrylic',
   'gallery': 'frame-base frame-gallery',
   'wooden': 'frame-base frame-wooden',
+  'matted-black': 'frame-base frame-matted-black', 
 };
 
 export default function HeroSection() {
   const [activeFrame, setActiveFrame] = useState<FrameStyle>('none');
-  const [activeBgColor, setActiveBgColor] = useState('#f5f5f0');
-  const [activeMaterial, setActiveMaterial] = useState<MaterialStyle>('matte');
+  const [activeBgColor, setActiveBgColor] = useState('transparent');
+  const [activeMaterial, setActiveMaterial] = useState<MaterialStyle>('matt');
 
-  const [activeImage, setActiveImage] = useState('/hero_image.png');
+  const [activeImage, setActiveImage] = useState('/owners_product/portrait-1.jpg');
   const [nextImage, setNextImage] = useState<string | null>(null);
   const [animState, setAnimState] = useState<'idle' | 'taking-off' | 'putting-on'>('idle');
 
@@ -52,21 +53,15 @@ export default function HeroSection() {
         src={activeImage}
         alt="Premium artwork print preview"
         fill
-        className="object-contain object-center drop-shadow-2xl mix-blend-darken"
+        className="object-contain object-center drop-shadow-2xl"
         priority
         sizes="(max-width: 768px) 55vw, (max-width: 1024px) 50vw, 540px"
       />
-      {activeMaterial === 'glossy' && (
+      {activeMaterial === 'gloss' && (
         <div className="absolute inset-0 z-20 pointer-events-none bg-gradient-to-tr from-transparent via-white/20 to-transparent mix-blend-overlay transition-opacity duration-500" />
       )}
-      {activeMaterial === 'acrylic-glass' && (
-        <>
-          <div className="absolute inset-0 z-20 pointer-events-none bg-gradient-to-tr from-transparent via-white/30 to-transparent mix-blend-soft-light transition-opacity duration-500" />
-          <div
-            className="absolute inset-0 z-30 pointer-events-none bg-white/20 transition-opacity duration-500"
-            style={{ clipPath: 'polygon(0 0, 100% 0, 100% 20%, 0 50%)' }}
-          />
-        </>
+      {activeMaterial === 'photo' && (
+        <div className="absolute inset-0 z-20 pointer-events-none bg-gradient-to-tr from-transparent via-white/10 to-transparent mix-blend-soft-light transition-opacity duration-500" />
       )}
       {activeMaterial === 'canvas' && (
         <div
@@ -83,14 +78,14 @@ export default function HeroSection() {
   );
 
   return (
-    <section className="relative w-full min-h-dvh bg-brand-offwhite flex flex-col">
+    <section className="relative w-full min-h-dvh bg-brand-black flex flex-col">
       <Navbar />
 
       {/* ── DESKTOP layout (md+) ── */}
       <div className="hidden md:flex flex-1 items-center px-8 lg:px-12">
         {/* Left: Text */}
         <div className="flex flex-col justify-center max-w-[540px] pt-8">
-          <h1 className="text-[clamp(2.8rem,5.5vw,5rem)] font-black leading-[0.95] tracking-tight text-brand-black">
+          <h1 className="text-[clamp(2.8rem,5.5vw,5rem)] font-heading font-extrabold leading-[0.95] tracking-tight text-white">
             Premium <br /> Art Printing <br /> in Lagos
           </h1>
           <p className="mt-5 text-[15px] leading-relaxed text-brand-muted max-w-[360px]">
@@ -116,7 +111,7 @@ export default function HeroSection() {
       <div className="flex md:hidden flex-1 flex-col items-center pt-20 px-6 overflow-hidden">
         {/* Text */}
         <div className="w-full mb-4">
-          <h1 className="text-[clamp(2rem,9vw,3rem)] font-black leading-[0.95] tracking-tight text-brand-black">
+          <h1 className="text-[clamp(2rem,9vw,3rem)] font-heading font-extrabold leading-[0.95] tracking-tight text-white">
             Premium <br /> Art Printing <br /> in Lagos
           </h1>
           <p className="mt-3 text-[13px] leading-relaxed text-brand-muted max-w-[300px]">

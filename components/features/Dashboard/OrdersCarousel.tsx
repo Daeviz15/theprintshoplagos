@@ -54,17 +54,19 @@ export default function OrdersCarousel({ orders }: OrdersCarouselProps) {
       {/* 3D Carousel Scene */}
       <div
         className="relative w-full flex items-center justify-center overflow-hidden"
-        style={{ perspective: '1200px', height: '460px' }}
+        style={{ perspective: '1200px', height: 'min(480px, calc(100dvh - 180px))' }}
       >
         {/* Rotating ring */}
         <div
           className="absolute"
           style={{
             width: '260px',
-            height: '360px',
+            height: '370px',
             transformStyle: 'preserve-3d',
             transform: `rotateY(${rotateY}deg)`,
             transition: 'transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)',
+            // Shift the ring upward so the floor gradient doesn't clip the card bottom
+            marginTop: '-30px',
           }}
         >
           {orders.map((order, index) => {
@@ -91,8 +93,8 @@ export default function OrdersCarousel({ orders }: OrdersCarouselProps) {
                     }`}
                   style={{ background: '#fff' }}
                 >
-                  {/* Image */}
-                  <div className="relative w-full h-[220px] overflow-hidden">
+                  {/* Image — slightly shorter to give more room to info */}
+                  <div className="relative w-full h-[195px] overflow-hidden flex-shrink-0">
                     <Image
                       src={order.imageSrc}
                       alt={order.artworkTitle}
@@ -118,12 +120,12 @@ export default function OrdersCarousel({ orders }: OrdersCarouselProps) {
                   </div>
 
                   {/* Info */}
-                  <div className="p-5">
-                    <h3 className="text-base font-semibold text-brand-black leading-snug mb-1 truncate">
+                  <div className="p-4">
+                    <h3 className="text-[13px] font-semibold text-brand-black leading-snug mb-0.5 truncate">
                       {order.artworkTitle}
                     </h3>
-                    <p className="text-xs text-brand-muted mb-3">{order.date}</p>
-                    <span className="text-lg font-light text-brand-black tracking-tight">{order.price}</span>
+                    <p className="text-[11px] text-brand-muted mb-2">{order.date}</p>
+                    <span className="text-base font-semibold text-brand-black tracking-tight">{order.price}</span>
                   </div>
                 </div>
               </div>
@@ -131,15 +133,15 @@ export default function OrdersCarousel({ orders }: OrdersCarouselProps) {
           })}
         </div>
 
-        {/* Reflection / floor gradient */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-brand-offwhite via-brand-offwhite/80 to-transparent pointer-events-none z-10" />
+        {/* Floor gradient — shorter so it doesn't reach card content */}
+        <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-brand-black to-transparent pointer-events-none z-10" />
       </div>
 
       {/* Control Buttons */}
-      <div className="flex items-center justify-center gap-6 mt-0">
+      <div className="flex items-center justify-center gap-6 mt-2">
         <button
           onClick={handlePrev}
-          className="flex items-center justify-center w-12 h-12 rounded-full bg-brand-black text-white hover:bg-brand-black/80 active:scale-90 transition-all duration-200 shadow-lg"
+          className="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 border border-white/10 text-white hover:bg-brand-accent hover:border-brand-accent active:scale-90 transition-all duration-200 shadow-lg"
           aria-label="Previous order"
         >
           <ChevronLeft size={22} strokeWidth={2.5} />
@@ -151,8 +153,8 @@ export default function OrdersCarousel({ orders }: OrdersCarouselProps) {
               key={i}
               onClick={() => setActiveIndex(i)}
               className={`rounded-full transition-all duration-300 ${i === activeIndex
-                  ? 'w-8 h-2.5 bg-brand-black'
-                  : 'w-2.5 h-2.5 bg-brand-black/20 hover:bg-brand-black/40'
+                  ? 'w-8 h-2.5 bg-brand-accent'
+                  : 'w-2.5 h-2.5 bg-white/20 hover:bg-white/40'
                 }`}
               aria-label={`Go to order ${i + 1}`}
             />
@@ -191,7 +193,7 @@ export default function OrdersCarousel({ orders }: OrdersCarouselProps) {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.92, y: 30 }}
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                  className="relative bg-white rounded-3xl md:rounded-[2rem] w-full max-w-[1000px] h-[92vh] md:h-[650px] overflow-hidden shadow-2xl flex flex-col md:flex-row"
+                  className="relative bg-white rounded-t-3xl md:rounded-[2rem] w-full max-w-[1000px] max-h-[96vh] md:h-[650px] overflow-hidden shadow-2xl flex flex-col md:flex-row"
                   onClick={(e) => e.stopPropagation()}
                 >
                   {/* Close Button */}
@@ -203,8 +205,8 @@ export default function OrdersCarousel({ orders }: OrdersCarouselProps) {
                     <X className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2.5} />
                   </button>
 
-                  {/* Left side: Hero Image */}
-                  <div className="relative w-full md:w-1/2 h-[220px] md:h-full flex-shrink-0 bg-brand-black overflow-hidden">
+                  {/* Left side: Hero Image — compact on mobile */}
+                  <div className="relative w-full md:w-1/2 h-[170px] md:h-full flex-shrink-0 bg-brand-black overflow-hidden">
                     <Image
                       src={selectedOrder.imageSrc}
                       alt={selectedOrder.artworkTitle}

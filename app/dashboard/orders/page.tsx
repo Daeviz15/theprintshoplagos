@@ -76,7 +76,7 @@ export default async function OrdersPage() {
   ];
 
   return (
-    <div className="w-full flex flex-col gap-6 mt-4">
+    <div className="w-full h-full flex flex-col">
       <OrdersCarousel orders={orders} />
     </div>
   );

@@ -37,11 +37,11 @@ export default async function DashboardPage() {
     <div className="w-full flex flex-col gap-10">
       {/* Header */}
       <div>
-        <h1 className="text-[2.5rem] md:text-[3.5rem] font-light tracking-tight leading-tight text-brand-black">
+        <h1 className="text-[2.5rem] md:text-[3.5rem] font-heading font-extrabold tracking-tight leading-tight text-white">
           Welcome back, <br className="md:hidden" />
-          <span className="font-medium text-brand-muted">{userFirstName}.</span>
+          <span className="font-heading font-extrabold text-white/60">{userFirstName}.</span>
         </h1>
-        <p className="mt-4 text-base text-brand-muted max-w-lg leading-relaxed">
+        <p className="mt-4 text-base text-white/80 max-w-lg leading-relaxed">
           Here is an overview of your print jobs. We are currently processing your latest order with the utmost care.
         </p>
       </div>
@@ -51,8 +51,8 @@ export default async function DashboardPage() {
         {/* Main Content Area (Recent Orders) */}
         <div className="lg:col-span-2 flex flex-col gap-6">
           <div className="flex items-center justify-between px-2">
-            <h2 className="text-2xl font-semibold tracking-tight text-brand-black">Recent Orders</h2>
-            <Link href="/dashboard/orders" className="text-sm font-medium text-brand-accent hover:text-brand-black transition-colors">
+            <h2 className="text-2xl font-heading font-extrabold tracking-tight text-white">Recent Orders</h2>
+            <Link href="/dashboard/orders" className="text-sm font-medium text-brand-accent hover:text-white transition-colors">
               View All ↗
             </Link>
           </div>
@@ -85,7 +85,7 @@ export default async function DashboardPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
 
             <div className="relative z-10 p-8">
-              <h3 className="text-2xl font-semibold tracking-tight mb-2">New Print Job</h3>
+              <h3 className="text-2xl font-heading font-extrabold tracking-tight mb-2">New Print Job</h3>
               <p className="text-sm text-white/70 mb-6 leading-relaxed font-normal">
                 Ready to bring your next masterpiece to life? Start a new configuration.
               </p>

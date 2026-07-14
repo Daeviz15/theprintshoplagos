@@ -71,7 +71,7 @@ export default function LoginForm() {
   return (
     <div className="flex flex-col">
       {/* Heading */}
-      <h1 className="text-[2.5rem] font-black tracking-tight leading-tight text-brand-black">
+      <h1 className="text-[2.5rem] font-heading font-extrabold tracking-tight leading-tight text-brand-black">
         Welcome Back
       </h1>
       <p className="mt-2 text-sm text-brand-muted">

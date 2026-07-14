@@ -8,14 +8,14 @@ export default function ContactSection() {
       {/* Left Side - Info & Image */}
       <div className="w-full md:w-1/2 bg-[#1c1c1c] relative p-12 md:p-24 flex flex-col justify-between overflow-hidden min-h-[500px]">
         <div className="relative z-10">
-          <h2 className="text-[clamp(3rem,6vw,5rem)] font-black leading-[0.9] tracking-tight text-white">
+          <h2 className="text-[clamp(3rem,6vw,5rem)] font-heading font-extrabold leading-[0.9] tracking-tight text-white">
             The Print <br /> Shop
           </h2>
           <p className="text-brand-accent text-sm font-bold tracking-[0.3em] uppercase mt-2">Lagos</p>
           <div className="mt-6 w-8 h-8 border-l-2 border-b-2 border-white/40 rotate-[-45deg]" />
           
           <div className="mt-20 sm:mt-28">
-            <h3 className="text-3xl font-bold tracking-tight text-white italic">
+            <h3 className="text-3xl font-heading font-extrabold tracking-tight text-white italic">
               Introducing Excellence
             </h3>
             <p className="mt-5 text-[15px] leading-[1.8] text-white/90 max-w-[340px]">
@@ -40,7 +40,7 @@ export default function ContactSection() {
 
       {/* Right Side - Form */}
       <div className="w-full md:w-1/2 bg-brand-accent p-12 md:p-24 flex flex-col justify-center">
-        <h2 className="text-5xl font-black tracking-tight text-brand-black">
+        <h2 className="text-5xl font-heading font-extrabold tracking-tight text-brand-black">
           Contact us
         </h2>
         <p className="mt-4 text-[15px] text-brand-black/70 font-medium max-w-md leading-relaxed">
@@ -62,7 +62,7 @@ export default function ContactSection() {
           <div className="flex flex-col sm:flex-row gap-7">
             <div className="flex-1 flex flex-col gap-2">
               <label className="text-xs font-bold text-brand-black tracking-wide uppercase">Email</label>
-              <input type="email" className="w-full bg-white h-14 px-5 border-none outline-none focus:ring-2 focus:ring-brand-black/20 transition-shadow" />
+              <input type="text" className="w-full bg-white h-14 px-5 border-none outline-none focus:ring-2 focus:ring-brand-black/20 transition-shadow" />
             </div>
             <div className="flex-1 flex flex-col gap-2">
               <label className="text-xs font-bold text-brand-black tracking-wide uppercase">Subject</label>
