@@ -19,7 +19,7 @@ export default async function DashboardPage() {
       id: '133-026',
       status: 'In Production',
       date: 'Oct 24, 2026',
-      imageSrc: '/art_2.png',
+      imageSrc: '/owners_product/portrait-3.jpg',
       artworkTitle: 'Dichotomy - Canvas Print',
       price: '₦ 45,200.00'
     },
@@ -27,7 +27,7 @@ export default async function DashboardPage() {
       id: '133-025',
       status: 'Shipped',
       date: 'Oct 12, 2026',
-      imageSrc: '/products/art-gallery-1.jpg',
+      imageSrc: '/owners_product/fashion-2.jpg',
       artworkTitle: 'Sacred Art of the Ori',
       price: '₦ 120,500.00'
     }
@@ -77,7 +77,7 @@ export default async function DashboardPage() {
           <div className="bg-brand-black text-white rounded-[2.5rem] shadow-2xl flex flex-col justify-end overflow-hidden relative min-h-[280px]">
             {/* Background Image */}
             <img
-              src="/art_1.png"
+              src="/owners_product/fashion-3.jpg"
               alt=""
               className="absolute inset-0 w-full h-full object-cover"
             />

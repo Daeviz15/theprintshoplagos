@@ -24,12 +24,12 @@ const frameOptions: { style: FrameStyle; label: string; background: string }[] =
 ];
 
 const imageOptions = [
-  { src: '/owners_product/portrait-1.jpg', label: 'Portrait' },
-  { src: '/owners_product/fashion-1.jpg', label: 'Fashion' },
-  { src: '/owners_product/cultural-1.jpg', label: 'Cultural' },
-  { src: '/owners_product/lifestyle-1.jpg', label: 'Lifestyle' },
-  { src: '/owners_product/landscape-1.jpg', label: 'Landscape' },
-  { src: '/owners_product/portrait-2.jpg', label: 'Portrait 2' },
+  { src: '/hero_image.png', label: 'Featured' },
+  { src: '/art_1.png', label: 'Abstract' },
+  { src: '/art_2.png', label: 'Modern' },
+  { src: '/owners_product/portrait-6.jpg', label: 'Portrait' },
+  { src: '/owners_product/cultural-2.jpg', label: 'Cultural' },
+  { src: '/owners_product/fashion-3.jpg', label: 'Fashion' },
 ];
 
 const colorOptions = [

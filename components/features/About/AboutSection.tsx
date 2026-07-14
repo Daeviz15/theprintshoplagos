@@ -18,8 +18,8 @@ export default function AboutSection() {
             <div className="rounded-xl overflow-hidden border-[5px] sm:border-[6px] border-black/5 shadow-2xl">
               <div className="relative aspect-[3/4] w-full">
                 <Image
-                  src="/art_1.png"
-                  alt="Fine art print — abstract composition"
+                  src="/owners_product/portrait-6.jpg"
+                  alt="Fine art print — landscape"
                   fill
                   className="object-cover"
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 45vw, 320px"
@@ -36,8 +36,8 @@ export default function AboutSection() {
             <div className="rounded-xl overflow-hidden border-[5px] sm:border-[6px] border-black/5 shadow-2xl">
               <div className="relative aspect-[3/4] w-full">
                 <Image
-                  src="/art_2.png"
-                  alt="Fine art print — portrait study"
+                  src="/owners_product/portrait-15.jpg"
+                  alt="Fine art print — portrait"
                   fill
                   className="object-cover"
                   sizes="(max-width: 640px) 55vw, (max-width: 1024px) 50vw, 360px"

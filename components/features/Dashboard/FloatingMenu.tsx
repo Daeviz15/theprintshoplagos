@@ -52,7 +52,7 @@ export default function FloatingMenu() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="hidden md:flex fixed top-24 left-1/2 -translate-x-1/2 z-50"
+            className="hidden md:flex fixed top-8 left-1/2 -translate-x-1/2 z-50"
           >
             <NavPill inline />
           </motion.div>

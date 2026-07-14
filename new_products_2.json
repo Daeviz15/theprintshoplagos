@@ -1,0 +1,226 @@
+[
+  {
+    "id": 18,
+    "category": "Fashion",
+    "src": "/owners_product/fashion-1.jpg",
+    "alt": "Fashion Photography",
+    "size": "small"
+  },
+  {
+    "id": 14,
+    "category": "Portrait",
+    "src": "/owners_product/portrait-6.jpg",
+    "alt": "Portrait Photography",
+    "size": "large"
+  },
+  {
+    "id": 29,
+    "category": "Lifestyle",
+    "src": "/owners_product/lifestyle-3.jpg",
+    "alt": "Lifestyle Photography",
+    "size": "small"
+  },
+  {
+    "id": 31,
+    "category": "Landscape",
+    "src": "/owners_product/landscape-1.jpg",
+    "alt": "Landscape Photography",
+    "size": "wide"
+  },
+  {
+    "id": 30,
+    "category": "Lifestyle",
+    "src": "/owners_product/lifestyle-4.jpg",
+    "alt": "Lifestyle Photography",
+    "size": "large"
+  },
+  {
+    "id": 5,
+    "category": "Art",
+    "src": "/img_2.png",
+    "alt": "Art Collection",
+    "size": "large"
+  },
+  {
+    "id": 15,
+    "category": "Portrait",
+    "src": "/owners_product/portrait-7.jpg",
+    "alt": "Portrait Photography",
+    "size": "wide"
+  },
+  {
+    "id": 4,
+    "category": "Art",
+    "src": "/img_1.png",
+    "alt": "Art Collection",
+    "size": "wide"
+  },
+  {
+    "id": 10,
+    "category": "Portrait",
+    "src": "/owners_product/portrait-2.jpg",
+    "alt": "Portrait Photography",
+    "size": "wide"
+  },
+  {
+    "id": 16,
+    "category": "Portrait",
+    "src": "/owners_product/portrait-8.jpg",
+    "alt": "Portrait Photography",
+    "size": "small"
+  },
+  {
+    "id": 22,
+    "category": "Fashion",
+    "src": "/owners_product/fashion-5.jpg",
+    "alt": "Fashion Photography",
+    "size": "small"
+  },
+  {
+    "id": 27,
+    "category": "Lifestyle",
+    "src": "/owners_product/lifestyle-1.jpg",
+    "alt": "Lifestyle Photography",
+    "size": "small"
+  },
+  {
+    "id": 11,
+    "category": "Portrait",
+    "src": "/owners_product/portrait-3.jpg",
+    "alt": "Portrait Photography",
+    "size": "small"
+  },
+  {
+    "id": 13,
+    "category": "Portrait",
+    "src": "/owners_product/portrait-5.jpg",
+    "alt": "Portrait Photography",
+    "size": "small"
+  },
+  {
+    "id": 21,
+    "category": "Fashion",
+    "src": "/owners_product/fashion-4.jpg",
+    "alt": "Fashion Photography",
+    "size": "large"
+  },
+  {
+    "id": 17,
+    "category": "Portrait",
+    "src": "/owners_product/portrait-9.jpg",
+    "alt": "Portrait Photography",
+    "size": "tall"
+  },
+  {
+    "id": 28,
+    "category": "Lifestyle",
+    "src": "/owners_product/lifestyle-2.jpg",
+    "alt": "Lifestyle Photography",
+    "size": "tall"
+  },
+  {
+    "id": 19,
+    "category": "Fashion",
+    "src": "/owners_product/fashion-2.jpg",
+    "alt": "Fashion Photography",
+    "size": "small"
+  },
+  {
+    "id": 9,
+    "category": "Portrait",
+    "src": "/owners_product/portrait-1.jpg",
+    "alt": "Portrait Photography",
+    "size": "small"
+  },
+  {
+    "id": 3,
+    "category": "Art",
+    "src": "/hero_image.png",
+    "alt": "Art Collection",
+    "size": "small"
+  },
+  {
+    "id": 6,
+    "category": "Art",
+    "src": "/img_5.png",
+    "alt": "Art Collection",
+    "size": "small"
+  },
+  {
+    "id": 23,
+    "category": "Cultural",
+    "src": "/owners_product/cultural-1.jpg",
+    "alt": "Cultural Photography",
+    "size": "tall"
+  },
+  {
+    "id": 24,
+    "category": "Cultural",
+    "src": "/owners_product/cultural-2.jpg",
+    "alt": "Cultural Photography",
+    "size": "small"
+  },
+  {
+    "id": 7,
+    "category": "Art",
+    "src": "/imag_3.png",
+    "alt": "Art Collection",
+    "size": "tall"
+  },
+  {
+    "id": 32,
+    "category": "Landscape",
+    "src": "/owners_product/landscape-2.jpg",
+    "alt": "Landscape Photography",
+    "size": "small"
+  },
+  {
+    "id": 12,
+    "category": "Portrait",
+    "src": "/owners_product/portrait-4.jpg",
+    "alt": "Portrait Photography",
+    "size": "tall"
+  },
+  {
+    "id": 20,
+    "category": "Fashion",
+    "src": "/owners_product/fashion-3.jpg",
+    "alt": "Fashion Photography",
+    "size": "wide"
+  },
+  {
+    "id": 25,
+    "category": "Cultural",
+    "src": "/owners_product/cultural-3.jpg",
+    "alt": "Cultural Photography",
+    "size": "small"
+  },
+  {
+    "id": 2,
+    "category": "Art",
+    "src": "/art_2.png",
+    "alt": "Art Collection",
+    "size": "small"
+  },
+  {
+    "id": 1,
+    "category": "Art",
+    "src": "/art_1.png",
+    "alt": "Art Collection",
+    "size": "tall"
+  },
+  {
+    "id": 8,
+    "category": "Art",
+    "src": "/imag_4.png",
+    "alt": "Art Collection",
+    "size": "small"
+  },
+  {
+    "id": 26,
+    "category": "Cultural",
+    "src": "/owners_product/cultural-4.jpg",
+    "alt": "Cultural Photography",
+    "size": "wide"
+  }
+]

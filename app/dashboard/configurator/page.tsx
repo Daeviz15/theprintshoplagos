@@ -11,6 +11,12 @@ const DUMMY_ARTWORKS = [
   { id: 'art-2', src: '/owners_product/landscape-1.jpg', title: 'Landscape Photography' },
   { id: 'art-3', src: '/owners_product/cultural-1.jpg', title: 'Cultural Art' },
   { id: 'art-4', src: '/owners_product/fashion-1.jpg', title: 'Fashion Photography' },
+  { id: 'art-5', src: '/art_1.png', title: 'Abstract Art' },
+  { id: 'art-6', src: '/art_2.png', title: 'Modern Art' },
+  { id: 'art-7', src: '/hero_image.png', title: 'Featured Art' },
+  { id: 'art-8', src: '/img_1.png', title: 'Creative Art 1' },
+  { id: 'art-9', src: '/img_2.png', title: 'Creative Art 2' },
+  { id: 'art-10', src: '/imag_3.png', title: 'Creative Art 3' },
 ];
 
 const FRAME_OPTIONS = [
@@ -264,7 +270,7 @@ export default function ConfiguratorPage() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="grid grid-cols-2 gap-4"
+                  className="grid grid-cols-2 gap-4 max-h-[450px] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] pr-1 pb-1"
                 >
                   {DUMMY_ARTWORKS.map((art) => (
                     <button 

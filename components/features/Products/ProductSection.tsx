@@ -5,27 +5,233 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useModalStore } from '@/lib/store/useModalStore';
 
-const categories = ['All', 'Portrait', 'Fashion', 'Cultural', 'Lifestyle', 'Landscape'];
+const categories = ['All', 'Art', 'Portrait', 'Fashion', 'Cultural', 'Lifestyle', 'Landscape'];
 
 const allProducts = [
-  { id: 1, category: 'Portrait', src: '/owners_product/portrait-1.jpg', alt: 'Portrait Art' },
-  { id: 2, category: 'Fashion', src: '/owners_product/fashion-1.jpg', alt: 'Fashion Photography' },
-  { id: 3, category: 'Cultural', src: '/owners_product/cultural-1.jpg', alt: 'Cultural Art' },
-  { id: 4, category: 'Lifestyle', src: '/owners_product/lifestyle-1.jpg', alt: 'Lifestyle Moment' },
-  { id: 5, category: 'Portrait', src: '/owners_product/portrait-2.jpg', alt: 'Portrait Art' },
-  { id: 6, category: 'Landscape', src: '/owners_product/landscape-1.jpg', alt: 'Landscape Photography' },
-  { id: 7, category: 'Fashion', src: '/owners_product/fashion-2.jpg', alt: 'Fashion Photography' },
-  { id: 8, category: 'Cultural', src: '/owners_product/cultural-2.jpg', alt: 'Cultural Art' },
-  { id: 9, category: 'Portrait', src: '/owners_product/portrait-3.jpg', alt: 'Portrait Art' },
-  { id: 10, category: 'Lifestyle', src: '/owners_product/lifestyle-2.jpg', alt: 'Lifestyle Moment' },
-  { id: 11, category: 'Fashion', src: '/owners_product/fashion-3.jpg', alt: 'Fashion Photography' },
-  { id: 12, category: 'Portrait', src: '/owners_product/portrait-4.jpg', alt: 'Portrait Art' },
-  { id: 13, category: 'Cultural', src: '/owners_product/cultural-3.jpg', alt: 'Cultural Art' },
-  { id: 14, category: 'Portrait', src: '/owners_product/portrait-5.jpg', alt: 'Portrait Art' },
-  { id: 15, category: 'Fashion', src: '/owners_product/fashion-4.jpg', alt: 'Fashion Photography' },
-  { id: 16, category: 'Lifestyle', src: '/owners_product/lifestyle-3.jpg', alt: 'Lifestyle Moment' },
-  { id: 17, category: 'Portrait', src: '/owners_product/portrait-6.jpg', alt: 'Portrait Art' },
-  { id: 18, category: 'Cultural', src: '/owners_product/cultural-4.jpg', alt: 'Cultural Art' },
+  {
+    "id": 18,
+    "category": "Fashion",
+    "src": "/owners_product/fashion-1.jpg",
+    "alt": "Fashion Photography",
+    "size": "small"
+  },
+  {
+    "id": 14,
+    "category": "Portrait",
+    "src": "/owners_product/portrait-6.jpg",
+    "alt": "Portrait Photography",
+    "size": "large"
+  },
+  {
+    "id": 29,
+    "category": "Lifestyle",
+    "src": "/owners_product/lifestyle-3.jpg",
+    "alt": "Lifestyle Photography",
+    "size": "small"
+  },
+  {
+    "id": 31,
+    "category": "Landscape",
+    "src": "/owners_product/landscape-1.jpg",
+    "alt": "Landscape Photography",
+    "size": "wide"
+  },
+  {
+    "id": 30,
+    "category": "Lifestyle",
+    "src": "/owners_product/lifestyle-4.jpg",
+    "alt": "Lifestyle Photography",
+    "size": "large"
+  },
+  {
+    "id": 5,
+    "category": "Art",
+    "src": "/img_2.png",
+    "alt": "Art Collection",
+    "size": "large"
+  },
+  {
+    "id": 15,
+    "category": "Portrait",
+    "src": "/owners_product/portrait-7.jpg",
+    "alt": "Portrait Photography",
+    "size": "wide"
+  },
+  {
+    "id": 4,
+    "category": "Art",
+    "src": "/img_1.png",
+    "alt": "Art Collection",
+    "size": "wide"
+  },
+  {
+    "id": 10,
+    "category": "Portrait",
+    "src": "/owners_product/portrait-2.jpg",
+    "alt": "Portrait Photography",
+    "size": "wide"
+  },
+  {
+    "id": 16,
+    "category": "Portrait",
+    "src": "/owners_product/portrait-8.jpg",
+    "alt": "Portrait Photography",
+    "size": "small"
+  },
+  {
+    "id": 22,
+    "category": "Fashion",
+    "src": "/owners_product/fashion-5.jpg",
+    "alt": "Fashion Photography",
+    "size": "small"
+  },
+  {
+    "id": 27,
+    "category": "Lifestyle",
+    "src": "/owners_product/lifestyle-1.jpg",
+    "alt": "Lifestyle Photography",
+    "size": "small"
+  },
+  {
+    "id": 11,
+    "category": "Portrait",
+    "src": "/owners_product/portrait-3.jpg",
+    "alt": "Portrait Photography",
+    "size": "small"
+  },
+  {
+    "id": 13,
+    "category": "Portrait",
+    "src": "/owners_product/portrait-5.jpg",
+    "alt": "Portrait Photography",
+    "size": "small"
+  },
+  {
+    "id": 21,
+    "category": "Fashion",
+    "src": "/owners_product/fashion-4.jpg",
+    "alt": "Fashion Photography",
+    "size": "large"
+  },
+  {
+    "id": 17,
+    "category": "Portrait",
+    "src": "/owners_product/portrait-9.jpg",
+    "alt": "Portrait Photography",
+    "size": "tall"
+  },
+  {
+    "id": 28,
+    "category": "Lifestyle",
+    "src": "/owners_product/lifestyle-2.jpg",
+    "alt": "Lifestyle Photography",
+    "size": "tall"
+  },
+  {
+    "id": 19,
+    "category": "Fashion",
+    "src": "/owners_product/fashion-2.jpg",
+    "alt": "Fashion Photography",
+    "size": "small"
+  },
+  {
+    "id": 9,
+    "category": "Portrait",
+    "src": "/owners_product/portrait-1.jpg",
+    "alt": "Portrait Photography",
+    "size": "small"
+  },
+  {
+    "id": 3,
+    "category": "Art",
+    "src": "/hero_image.png",
+    "alt": "Art Collection",
+    "size": "small"
+  },
+  {
+    "id": 6,
+    "category": "Art",
+    "src": "/img_5.png",
+    "alt": "Art Collection",
+    "size": "small"
+  },
+  {
+    "id": 23,
+    "category": "Cultural",
+    "src": "/owners_product/cultural-1.jpg",
+    "alt": "Cultural Photography",
+    "size": "tall"
+  },
+  {
+    "id": 24,
+    "category": "Cultural",
+    "src": "/owners_product/cultural-2.jpg",
+    "alt": "Cultural Photography",
+    "size": "small"
+  },
+  {
+    "id": 7,
+    "category": "Art",
+    "src": "/imag_3.png",
+    "alt": "Art Collection",
+    "size": "tall"
+  },
+  {
+    "id": 32,
+    "category": "Landscape",
+    "src": "/owners_product/landscape-2.jpg",
+    "alt": "Landscape Photography",
+    "size": "small"
+  },
+  {
+    "id": 12,
+    "category": "Portrait",
+    "src": "/owners_product/portrait-4.jpg",
+    "alt": "Portrait Photography",
+    "size": "tall"
+  },
+  {
+    "id": 20,
+    "category": "Fashion",
+    "src": "/owners_product/fashion-3.jpg",
+    "alt": "Fashion Photography",
+    "size": "wide"
+  },
+  {
+    "id": 25,
+    "category": "Cultural",
+    "src": "/owners_product/cultural-3.jpg",
+    "alt": "Cultural Photography",
+    "size": "small"
+  },
+  {
+    "id": 2,
+    "category": "Art",
+    "src": "/art_2.png",
+    "alt": "Art Collection",
+    "size": "small"
+  },
+  {
+    "id": 1,
+    "category": "Art",
+    "src": "/art_1.png",
+    "alt": "Art Collection",
+    "size": "tall"
+  },
+  {
+    "id": 8,
+    "category": "Art",
+    "src": "/imag_4.png",
+    "alt": "Art Collection",
+    "size": "small"
+  },
+  {
+    "id": 26,
+    "category": "Cultural",
+    "src": "/owners_product/cultural-4.jpg",
+    "alt": "Cultural Photography",
+    "size": "wide"
+  }
 ];
 
 export default function ProductSection() {
@@ -71,10 +277,17 @@ export default function ProductSection() {
             </button>
           ))}
         </div>
-        {/* Masonry Gallery */}
-        <motion.div layout className="w-full columns-2 sm:columns-2 lg:columns-3 xl:columns-4 gap-3 sm:gap-4 lg:gap-6">
+        {/* Gallery */}
+        <motion.div 
+          layout 
+          className={
+            activeCategory === 'All'
+              ? "w-full grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 auto-rows-[180px] sm:auto-rows-[250px] gap-3 sm:gap-4 lg:gap-6 grid-flow-dense"
+              : "w-full flex flex-wrap justify-center gap-3 sm:gap-4 lg:gap-6"
+          }
+        >
           <AnimatePresence mode="popLayout">
-            {filteredProducts.map((product) => (
+            {filteredProducts.map((product: any) => (
               <motion.div
                 layout
                 initial={{ opacity: 0, scale: 0.85, y: 30 }}
@@ -82,18 +295,24 @@ export default function ProductSection() {
                 exit={{ opacity: 0, scale: 0.85, y: 30 }}
                 transition={{ duration: 0.4, type: "spring", bounce: 0.2 }}
                 key={product.id}
-                className="relative w-full break-inside-avoid rounded-2xl overflow-hidden group cursor-pointer bg-white/5 shadow-sm hover:shadow-xl mb-3 sm:mb-4 lg:mb-6"
+                className={`relative overflow-hidden group cursor-pointer bg-white/5 shadow-sm hover:shadow-xl rounded-2xl ${
+                  activeCategory === 'All'
+                    ? (product.size === 'tall' ? 'row-span-2 col-span-1' 
+                     : product.size === 'wide' ? 'col-span-2 row-span-1' 
+                     : product.size === 'large' ? 'col-span-2 row-span-2' 
+                     : 'col-span-1 row-span-1')
+                    : 'w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] aspect-[3/4]'
+                }`}
               >
-                <div className="relative w-full">
+                <div className="relative w-full h-full min-h-[150px]">
                   <Image
                     src={product.src}
                     alt={product.alt}
-                    width={600}
-                    height={800}
-                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    fill
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                 </div>
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 pointer-events-none" />
               </motion.div>
             ))}
           </AnimatePresence>

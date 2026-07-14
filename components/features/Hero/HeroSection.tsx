@@ -22,7 +22,7 @@ export default function HeroSection() {
   const [activeBgColor, setActiveBgColor] = useState('transparent');
   const [activeMaterial, setActiveMaterial] = useState<MaterialStyle>('matt');
 
-  const [activeImage, setActiveImage] = useState('/owners_product/portrait-1.jpg');
+  const [activeImage, setActiveImage] = useState('/hero_image.png');
   const [nextImage, setNextImage] = useState<string | null>(null);
   const [animState, setAnimState] = useState<'idle' | 'taking-off' | 'putting-on'>('idle');
 
